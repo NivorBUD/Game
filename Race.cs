@@ -291,7 +291,13 @@ public partial class Race : Form
         DRSIcon.Size = new Size(Size.Width / 15, (int)(Size.Width / 15 * 0.606));
         DRSIcon.Image = ResizeImage(DRSIcon.Image, DRSIcon.Size);
 
-        Speedometer.Image = ResizeImage(bitmaps[idFiles["Speedometer" + (int)RaceModel.PlayerCar.Velocity.Y]], Speedometer.Size);
+        if (RaceModel.PlayerCar.DRSOn)
+            if ((int)(RaceModel.PlayerCar.Velocity.Y * RaceModel.PlayerCar.DRSMultiplier) >= 30)
+                Speedometer.Image = ResizeImage(bitmaps[idFiles["Speedometer30"]], Speedometer.Size);
+            else
+                Speedometer.Image = ResizeImage(bitmaps[idFiles["Speedometer" + (int)(RaceModel.PlayerCar.Velocity.Y * RaceModel.PlayerCar.DRSMultiplier)]], Speedometer.Size);
+        else
+            Speedometer.Image = ResizeImage(bitmaps[idFiles["Speedometer" + (int)RaceModel.PlayerCar.Velocity.Y]], Speedometer.Size);
     }
 
     public void ChangeImages()
@@ -306,7 +312,7 @@ public partial class Race : Form
     private void MoveDownBackground()
     {
         var k = Size.Height * 0.1 / 100;
-        if (RaceModel.PlayerCar.DRSOn) k *= 1.0 + RaceModel.PlayerCar.DRSMultiplier;
+        if (RaceModel.PlayerCar.DRSOn) k *= RaceModel.PlayerCar.DRSMultiplier;
         if (RaceModel.PlayerCar.Velocity.Y <= 0) return;
 
         if (RaceModel.NextSectorId == -1)

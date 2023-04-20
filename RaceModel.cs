@@ -22,7 +22,7 @@ public class RaceModel
     {
         PlayerCar = new Car(new Point(50, 50), "McLaren");
         Track = new List<int>();
-        ActualSectorId = 1234;
+        ActualSectorId = 0;
         Economy = new(1000);
         Economy.RModel = this;
         

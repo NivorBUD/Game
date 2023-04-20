@@ -25,7 +25,7 @@ public class Car
         DRSMaxTime = 50;
         DRSOn = false;
         MaxVelocity = new Vector(8, 20);
-        DRSMultiplier = 0.1;
+        DRSMultiplier = 1.1;
 
         SpecificationsLevels = new();
         var allSpecifications = new Specification[] { Specification.Speed, Specification.DRSTime, 
