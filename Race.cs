@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace Game;
 public partial class Race : Form
@@ -21,6 +21,10 @@ public partial class Race : Form
     private static Image ActualImage;
     private static Image NextImage;
     private static PictureBox Speedometer;
+    private static Timer Timer;
+    private static Timer SpeedTimer;
+    private static Timer UpdateTimer;
+    private IntPtr dc = GetWindowDC(IntPtr.Zero);
 
     public Timer DRSTimer;
     public Timer Stopwatch; // секундомер 
@@ -41,22 +45,27 @@ public partial class Race : Form
         KeyPreview = true;
         PrevUsed = 0;
         LightN = 0;
-        Visible = false;
         Keyboard();
         ChangeImages();
+        Paint += new PaintEventHandler(OnPaint);
     }
 
     public void Start()
     {
         Visible = true;
+        BackColor = Color.GhostWhite;
+        BackColor = Color.White;
         Light.Size = new Size(Size.Width / 5, (int)(Size.Width / 5 * 0.424));
+        LightN = 0;
+        MiliSeconds = 0;
         Light.Image = ResizeImage(bitmaps[idFiles["Light" + LightN]], Light.Size);
+        Light.Location = new Point(Size.Width / 2 - Light.Size.Width / 2, Size.Height / 10);
+        ChangeImages();
+        ChangeBackground();
         RaceModel.PlayerCar.Location = new Point(Size.Width / 2, 0);
         Player.Location = new Point(RaceModel.PlayerCar.Location.X, (int)(Size.Height - 2.6 * Player.Height));
         Speedometer.Size = new Size(Size.Width / 8, (int)(Size.Width / 8 * 0.98));
         Speedometer.Location = new Point(0, (int)(Size.Height - Speedometer.Height * 1.1));
-
-        Paint += new PaintEventHandler(OnPaint);
 
         var lightTimer = new Timer()
         {
@@ -65,18 +74,18 @@ public partial class Race : Form
         lightTimer.Tick += LightTimer_Tick;
         lightTimer.Start();
 
+        StartTimers();
+
         Stopwatch = new() { Interval = 100 };
         Stopwatch.Tick += (s, e) => MiliSeconds++;
+        Controls.Add(Light);
     }
 
-    protected override CreateParams CreateParams // ???
+    public void Finish()
     {
-        get
-        {
-            var cp = base.CreateParams;
-            cp.ExStyle |= 0x02000000;    // WS_EX_COMPOSITED
-            return cp;
-        }
+        Visible = false;
+        StopTimers();
+        RaceModel.MenuAndGarage.MakeResults();
     }
 
     private void Keyboard()
@@ -104,33 +113,29 @@ public partial class Race : Form
     #region Таймеры
     private void InitializeTimers()
     {
-        var timer = new Timer
+        Timer = new Timer
         {
             Interval = 1
         };
-        timer.Tick += Timer_Tick;
-        timer.Start();
+        Timer.Tick += Timer_Tick;
 
-        var speedTimer = new Timer
+        SpeedTimer = new Timer
         {
             Interval = 100,
         };
-        speedTimer.Tick += SpeedTimer_Tick;
-        speedTimer.Start();
+        SpeedTimer.Tick += SpeedTimer_Tick;
 
-        var updateTimer = new Timer
+        UpdateTimer = new Timer
         {
             Interval = 10,
         };
-        updateTimer.Tick += UpdateTimer_Tick;
-        updateTimer.Start();
+        UpdateTimer.Tick += UpdateTimer_Tick;
 
         DRSTimer = new Timer
         {
             Interval = 20,
         };
         DRSTimer.Tick += DRSTimer_Tick;
-        DRSTimer.Start();
     }
 
     private void DRSTimer_Tick(object sender, EventArgs e)
@@ -148,10 +153,7 @@ public partial class Race : Form
         DrawCar();
 
         if (LightN >= 6 && RaceModel.ActualSectorId != 1234)
-        {
-            Light.Image = null;
-            Controls.Remove(Light);
-        }
+            Light.Image = ResizeImage(bitmaps[idFiles["Light0"]], Light.Size);
     }
 
     public void LightTimer_Tick(object sender, EventArgs e)
@@ -164,6 +166,7 @@ public partial class Race : Form
         {
             Light.Image = ResizeImage(bitmaps[idFiles["Light0"]], Light.Size);
             RaceModel.StartRace();
+            var a = CheckRoad();
             timer.Stop();
         }
     }
@@ -171,12 +174,29 @@ public partial class Race : Form
     private void SpeedTimer_Tick(object sender, EventArgs e)
     {
         RaceModel.ChangeSpeed(KeyWS.KeyCode.ToString(), KeyAD.KeyCode.ToString());
+        RaceModel.PlayerCar.OnRoad = CheckRoad();
     }
 
     private void UpdateTimer_Tick(object sender, EventArgs e)
     {
         ChangeBackground();
         ChangeDRSStatus();
+    }
+
+    private void StopTimers()
+    {
+        Timer.Stop();
+        SpeedTimer.Stop();
+        UpdateTimer.Stop();
+        DRSTimer.Stop();
+    }
+
+    private void StartTimers()
+    {
+        Timer.Start();
+        SpeedTimer.Start();
+        UpdateTimer.Start();
+        DRSTimer.Start();
     }
     #endregion
 
@@ -246,7 +266,6 @@ public partial class Race : Form
         Controls.Add(DRSBar);
         Controls.Add(RaceTimeBox);
         Controls.Add(Player);
-        Controls.Add(Light);
         Player.Location = new Point(Player.Location.X, Size.Height - Player.Height);
     }
 
@@ -271,7 +290,7 @@ public partial class Race : Form
         var kw = coefficientsWidth[Math.Abs((int)RaceModel.PlayerCar.Velocity.X)];
         var kh = coefficientsHeight[Math.Abs((int)RaceModel.PlayerCar.Velocity.X)];
         Player.Size = new Size((int)(Size.Width * kw), (int)(Size.Width * kh));
-        Player.Image = ResizeImage(bitmaps[idFiles[RaceModel.PlayerCar.CarBrand + RaceModel.PlayerCar.Velocity.X]], Player.Size);
+        Player.Image = ResizeImage(bitmaps[idFiles[RaceModel.PlayerCar.CarBrand + (int)RaceModel.PlayerCar.Velocity.X]], Player.Size);
     }
 
     public void ChangeBackground()
@@ -317,7 +336,7 @@ public partial class Race : Form
 
         if (RaceModel.NextSectorId == -1)
         {
-            Player.Location = new Point(RaceModel.PlayerCar.Location.X, (int)(Player.Location.Y - Math.Abs(RaceModel.PlayerCar.Velocity.Y) * k));
+            MovePlayer(k);
             return;
         }
 
@@ -331,18 +350,16 @@ public partial class Race : Form
         }
         BackColor = Color.White;
         BackColor = Color.Wheat;
+        
+    }
 
-        //for (int i = 0; i < Math.Abs(RaceModel.PlayerCar.Velocity.Y); i++)
-        //{
-        //    RaceModel.PlayerCar.Location = new Point(RaceModel.PlayerCar.Location.X, (int)(RaceModel.PlayerCar.Location.Y + k));
-        //    Light.Location = new Point(Light.Location.X, (int)(Light.Location.Y + k));
-        //    if (RaceModel.PlayerCar.Location.Y >= Size.Height)
-        //    {
-        //        RaceModel.PlayerCar.Location = new Point(RaceModel.PlayerCar.Location.X, 0);
-        //        RaceModel.ChangeSector();
-        //        ChangeImages();
-        //    }
-        //}
+    private void MovePlayer(double k)
+    {
+        Player.Location = new Point(RaceModel.PlayerCar.Location.X, (int)(Player.Location.Y - Math.Abs(RaceModel.PlayerCar.Velocity.Y) * k));
+        if (Player.Location.Y <= Size.Height * 0.14)
+            Stopwatch.Stop();
+        if (Player.Bottom <= 0)
+            RaceModel.FinishRace(MiliSeconds, 5);
     }
 
     private void OnPaint(object sender, PaintEventArgs e)
@@ -367,5 +384,28 @@ public partial class Race : Form
     {
         WindowState = FormWindowState.Maximized;
         ChangeImages();
+    }
+
+    [DllImport("gdi32")]
+    public static extern uint GetPixel(IntPtr hDC, int XPos, int YPos);
+    [DllImport("User32.dll", CharSet = CharSet.Auto)]
+    public static extern IntPtr GetWindowDC(IntPtr hWnd);
+    private bool CheckRoad() // проверка нахождения на трассе 
+    {
+        var leftSide = GetPixel(dc, Player.Left, Player.Top);
+        var rightSide = GetPixel(dc, Player.Right, Player.Top);
+        var leftSideOnRoad = leftSide == 12698049 || leftSide == 7237230 || leftSide == 1973790 || leftSide == 1907997; // числа - номера цветов по которым можно ездить
+        var rightSideOnRoad = rightSide == 12698049 || rightSide == 7237230 || rightSide == 1973790 || rightSide == 1907997;
+        return leftSideOnRoad || rightSideOnRoad;
+    }
+
+    protected override CreateParams CreateParams // ???
+    {
+        get
+        {
+            var cp = base.CreateParams;
+            cp.ExStyle |= 0x02000000;    // WS_EX_COMPOSITED
+            return cp;
+        }
     }
 }

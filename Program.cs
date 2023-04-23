@@ -3,7 +3,7 @@ public class Program
 {
     public static RaceModel RModel = new();
     public static Race RForm = new();
-    public static MenuAndGarage MenuAndGarageForm = new();
+    public static Menu MenuAndGarageForm = new();
 
     public static void Main()
     {

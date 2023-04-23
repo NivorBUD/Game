@@ -42,11 +42,14 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="Economy.cs" />
-    <Compile Include="MenuAndGarage.cs">
+    <Compile Include="Garage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuAndGarage.Designer.cs">
-      <DependentUpon>MenuAndGarage.cs</DependentUpon>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="RaceModel.cs" />
     <Compile Include="Race.cs">
@@ -56,6 +59,9 @@
       <DependentUpon>Race.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Results.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Specifications_Enum.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,8 +81,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MenuAndGarage.resx">
-      <DependentUpon>MenuAndGarage.cs</DependentUpon>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Race.resx">
       <DependentUpon>Race.cs</DependentUpon>
