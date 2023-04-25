@@ -19,9 +19,11 @@ public class RaceModel
     public Menu MenuAndGarage;
     public int StartPlace;
     public int Income;
+    public bool IsFirstRace;
 
     public RaceModel()
     {
+        IsFirstRace = true;
         PlayerCar = new Car(new Point(50, 50), "McLaren");
         Track = new List<int>();
         ActualSectorId = 0;
@@ -64,7 +66,7 @@ public class RaceModel
     public void DRS()
     {
         PlayerCar.DRSOn = !PlayerCar.DRSOn;
-        if (PlayerCar.DRSUsedTime > PlayerCar.DRSMaxTime)
+        if (PlayerCar.DRSUsedTime > PlayerCar.DRSMaxTime || !PlayerCar.OnRoad)
             PlayerCar.DRSOn = false;
     }
 
@@ -100,18 +102,19 @@ public class RaceModel
 
     public void Move(Size PanelSize)
     {
+        if (!PlayerCar.OnRoad) PlayerCar.DRSOn = false;
         var x = PlayerCar.Location.X;
         int k = (int)(PanelSize.Width * 3.0 / 1100);
         if (GameIsGo && PlayerCar.Velocity.Y != 0)
         {
             if ((x <= 0 && PlayerCar.Velocity.X < 0) || (x >= PanelSize.Width && PlayerCar.Velocity.X > 0)) return;
-            PlayerCar.Location.X += (int)(PlayerCar.Velocity.X * k);
+            PlayerCar.Location.X += (int)(PlayerCar.Velocity.X * k * PlayerCar.Velocity.Y / PlayerCar.MaxVelocity.Y);
         }
     }
 
     public void ChangeSpeed(string keyWS, string keyAD)
     {
-        var controlMultiplayer = 0.8 + (double)PlayerCar.SpecificationsLevels[Specification.Control] / 10;
+        var controlMultiplayer = 0.9 + (double)PlayerCar.SpecificationsLevels[Specification.Control] / 10;
         if (GameIsGo)
         {
             switch (keyWS)
@@ -132,6 +135,8 @@ public class RaceModel
                         PlayerCar.Velocity.Y -= (1 + PlayerCar.BoostMultiplayer);
                     if (!PlayerCar.OnRoad)
                         PlayerCar.Velocity.Y -= 1;
+                    if (PlayerCar.Velocity.Y < 0)
+                        PlayerCar.Velocity.Y = 0;
                     break;
                 default:
                     if (!PlayerCar.OnRoad)
@@ -143,6 +148,8 @@ public class RaceModel
                             PlayerCar.Velocity.Y += 0.3;
                         else
                             PlayerCar.Velocity.Y -= 0.3;
+                    if (PlayerCar.Velocity.Y < 0)
+                        PlayerCar.Velocity.Y = 0;
                     break;
             }
             switch (keyAD)
@@ -150,10 +157,12 @@ public class RaceModel
                 case "A":
                     if (PlayerCar.Velocity.X > -PlayerCar.MaxVelocity.X)
                         PlayerCar.Velocity.X -= controlMultiplayer;
+                    PlayerCar.Velocity.X = (int)PlayerCar.Velocity.X;
                     break;
                 case "D":
                     if (PlayerCar.Velocity.X < PlayerCar.MaxVelocity.X)
                         PlayerCar.Velocity.X += controlMultiplayer;
+                    PlayerCar.Velocity.X = (int)PlayerCar.Velocity.X;
                     break;
             }
         }
@@ -177,6 +186,7 @@ public class RaceModel
 
     public void UpdateCar(Specification specification)
     {
+        if (PlayerCar.SpecificationsLevels[specification] == 5) return;
         PlayerCar.SpecificationsLevels[specification] += 1;
         switch (specification)
         {

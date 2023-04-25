@@ -15,13 +15,12 @@ public partial class Menu : Form
     private Label FernandoPlace;
     private Label CharlePlace;
     private Button RepeatRace;
-    private Button ToGarage;
-    private Button ToMenu;
+    private Button ToGarageFromResults;
+    private Button ToMenuFromResults;
     private List<Control> ResultControls;
 
     public void GoToResults()
     {
-        Controls.Clear();
         MakeResults();
     }
 
@@ -40,10 +39,20 @@ public partial class Menu : Form
         MakeResultControlsList();
     }
 
-    public void RemoveResults()
+    private void MakeResultControlsList()
     {
-        foreach (var e in ResultControls)
-            Controls.Remove(e);
+        ResultControls = new()
+        {
+            PlayerPlace,
+            Income,
+            MaxPlace,
+            LewisPlace,
+            FernandoPlace,
+            CharlePlace,
+            RepeatRace,
+            ToGarageFromResults,
+            ToMenuFromResults
+        };
     }
 
     public void MakeResultButtons()
@@ -58,33 +67,33 @@ public partial class Menu : Form
         RepeatRace.Click += (s, e) => 
         {
             Visible = false;
-            RemoveResults();
+            Controls.Clear();
             RaceModel.Start();
         };
 
-        ToGarage = new()
+        ToGarageFromResults = new()
         {
             Size = new Size((int)(Size.Width * 0.4), RepeatRace.Height),
             Location = new Point((int)(RepeatRace.Right + Size.Width * 0.05), RepeatRace.Top),
             Text = "В ГАРАЖ",
             Font = new Font("Ariel", 30)
         };
-        ToGarage.Click += (s, e) =>
+        ToGarageFromResults.Click += (s, e) =>
         {
-            RemoveResults();
+            Controls.Clear();
             GoToGarage();
         };
 
-        ToMenu = new()
+        ToMenuFromResults = new()
         {
             Size = new Size((int)(Size.Width * 0.2), RepeatRace.Height),
-            Location = new Point((int)(ToGarage.Right + Size.Width * 0.05), RepeatRace.Top),
+            Location = new Point((int)(ToGarageFromResults.Right + Size.Width * 0.05), RepeatRace.Top),
             Text = "В МЕНЮ",
             Font = new Font("Ariel", 30)
         };
-        ToMenu.Click += (s, e) =>
+        ToMenuFromResults.Click += (s, e) =>
         {
-            RemoveResults();
+            Controls.Clear();
             GoToMenu();
         };
 

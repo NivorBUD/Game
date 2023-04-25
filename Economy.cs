@@ -21,7 +21,8 @@ public class Economy
         };
     }
 
-    public bool CanBuy(Specification specification) => Price[specification] <= Balance;
+    public bool CanBuy(Specification specification) => 
+        Price[specification] <= Balance && RModel.PlayerCar.SpecificationsLevels[specification] < 5;
 
     public void Buy(Specification specification)
     {

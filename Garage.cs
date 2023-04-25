@@ -26,15 +26,8 @@ public partial class Menu : Form
     private static List<Control> GarageControls;
 
     public void GoToGarage()
-    {
-        Controls.Clear();   
+    {   
         MakeGarage();
-    }
-
-    public void RemoveGarage()
-    {
-        foreach (var e in GarageControls)
-            Controls.Remove(e);
     }
 
     private void MakeGarage()
@@ -61,6 +54,26 @@ public partial class Menu : Form
         MakeGarageProgressBars();
 
         MakeGarageControlsList();
+    }
+
+    private void MakeGarageControlsList()
+    {
+        GarageControls = new()
+        {
+            Car,
+            SpeedLevel,
+            DRSTimeLevel,
+            DRSBoostLevel,
+            BoostLevel,
+            ControlLevel,
+            UpSpeed,
+            UpDRSTime,
+            UpDRSBoost,
+            UpBoost,
+            UpControl,
+            StartRace,
+            Balance
+        };
     }
 
     private void MakeGarageCar()
@@ -116,7 +129,7 @@ public partial class Menu : Form
 
         StartRace.Click += (s, e) =>
         {
-            RemoveGarage();
+            Controls.Clear();
             Visible = false;
             Program.RModel.Start();
         };
@@ -179,8 +192,10 @@ public partial class Menu : Form
         foreach (var specification in dict.Keys)
             if (!RaceModel.Economy.CanBuy(specification))
             {
-                dict[specification].BackColor = Color.Red;
-                dict[specification].ForeColor = Color.Yellow;
+                if (RaceModel.PlayerCar.SpecificationsLevels[specification] == 5)
+                    dict[specification].BackColor = Color.LimeGreen;
+                else
+                    dict[specification].BackColor = Color.Red;
                 dict[specification].Enabled = false;
             }
             else

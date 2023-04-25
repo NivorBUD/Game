@@ -22,14 +22,7 @@ public partial class Menu : Form
 
     public void GoToMenu()
     {
-        Controls.Clear();
         MakeMenu();
-    }
-
-    public void RemoveMenu()
-    {
-        foreach (var e in MenuControls)
-            Controls.Remove(e);
     }
 
     private void MakeMenuControls()
@@ -41,15 +34,21 @@ public partial class Menu : Form
             BackColor = Color.Transparent,
             FlatStyle = FlatStyle.Flat,
         };
-        StartGame.Paint += StartGame_Paint;
+        StartGame.Paint += Button_Paint;
         StartGame.FlatAppearance.MouseOverBackColor = Color.Transparent;
         StartGame.FlatAppearance.MouseDownBackColor = Color.Transparent;
         StartGame.MouseEnter += (s, e) => StartGame.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, Color.Black);
         StartGame.FlatAppearance.BorderSize = 0;
         StartGame.Click += (s, e) =>
         {
-            RemoveMenu();
-            GoToGarage();
+            Controls.Clear();
+            if (RaceModel.IsFirstRace)
+            {
+                GoToStory();
+                RaceModel.IsFirstRace = false;
+            }
+            else 
+                GoToGarage();
         };
 
         StartTraining = new Button()
@@ -59,15 +58,15 @@ public partial class Menu : Form
             BackColor = Color.Transparent,
             FlatStyle = FlatStyle.Flat,
         };
-        StartTraining.Paint += StartTraining_Paint;
+        StartTraining.Paint += Button_Paint;
         StartTraining.FlatAppearance.MouseOverBackColor = Color.Transparent;
         StartTraining.FlatAppearance.MouseDownBackColor = Color.Transparent;
         StartTraining.MouseEnter += (s, e) => StartTraining.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, Color.Black);
         StartTraining.FlatAppearance.BorderSize = 0;
         StartTraining.Click += (s, e) =>
         {
-            RemoveMenu();
-            GoToResults();
+            Controls.Clear();
+            GoToTraining();
         };
 
         MenuControls = new()
@@ -76,42 +75,6 @@ public partial class Menu : Form
             StartTraining
         };
         UpdForm();
-    }
-
-    private void MakeResultControlsList()
-    {
-        ResultControls = new()
-        {
-            PlayerPlace,
-            Income,
-            MaxPlace,
-            LewisPlace,
-            FernandoPlace,
-            CharlePlace,
-            RepeatRace,
-            ToGarage,
-            ToMenu
-        };
-    }
-
-    private void MakeGarageControlsList()
-    {
-        GarageControls = new()
-        {
-            Car,
-            SpeedLevel,
-            DRSTimeLevel,
-            DRSBoostLevel,
-            BoostLevel,
-            ControlLevel,
-            UpSpeed,
-            UpDRSTime,
-            UpDRSBoost,
-            UpBoost,
-            UpControl,
-            StartRace,
-            Balance
-        };
     }
 
     protected override void OnSizeChanged(EventArgs e)
@@ -141,20 +104,6 @@ public partial class Menu : Form
 
     private Image ResizeImage(Image oldImage, Size size) => new Bitmap(oldImage, size);
 
-    private void StartGame_Paint(object sender, PaintEventArgs e)
-    {
-        float fontSize = NewFontSize(e.Graphics, StartGame.Size, StartGame.Font, StartGame.Text);
-        Font f = new Font("Times New Roman", fontSize, FontStyle.Regular);
-        StartGame.Font = f;
-    }
-
-    private void StartTraining_Paint(object sender, PaintEventArgs e)
-    {
-        float fontSize = NewFontSize(e.Graphics, StartTraining.Size, StartTraining.Font, StartTraining.Text);
-        Font f = new Font("Times New Roman", fontSize, FontStyle.Regular);
-        StartTraining.Font = f;
-    }
-
     public static float NewFontSize(Graphics graphics, Size size, Font font, string str)
     {
         SizeF stringSize = graphics.MeasureString(str, font);
@@ -173,6 +122,8 @@ public partial class Menu : Form
         MakeGarageControls();
         MakeMenuControls();
         MakeResultControls();
+        MakeStoryControls();
+        MakeTrainingControls();
 
         MakeMenu();
     }

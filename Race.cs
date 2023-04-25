@@ -25,6 +25,7 @@ public partial class Race : Form
     private static Timer SpeedTimer;
     private static Timer UpdateTimer;
     private IntPtr dc = GetWindowDC(IntPtr.Zero);
+    private static List<uint> RoadValues;
 
     public Timer DRSTimer;
     public Timer Stopwatch; // секундомер 
@@ -34,6 +35,7 @@ public partial class Race : Form
 
     public Race()
     {
+        RoadValues = new() { 12698049, 7237230, 1973790, 1907997, 12632256, 0, 1118481 }; // числа - номера цветов по которым можно ездить
         DoubleBuffered = true;
         MakeDir();
         RaceModel = Program.RModel;
@@ -394,8 +396,8 @@ public partial class Race : Form
     {
         var leftSide = GetPixel(dc, Player.Left, Player.Top);
         var rightSide = GetPixel(dc, Player.Right, Player.Top);
-        var leftSideOnRoad = leftSide == 12698049 || leftSide == 7237230 || leftSide == 1973790 || leftSide == 1907997; // числа - номера цветов по которым можно ездить
-        var rightSideOnRoad = rightSide == 12698049 || rightSide == 7237230 || rightSide == 1973790 || rightSide == 1907997;
+        var leftSideOnRoad = RoadValues.Contains(leftSide); 
+        var rightSideOnRoad = RoadValues.Contains(rightSide);
         return leftSideOnRoad || rightSideOnRoad;
     }
 
