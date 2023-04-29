@@ -28,7 +28,7 @@ public class RaceModel
         PlayerCar = new Car(new Point(0, 0), "McLaren");
         Track = new List<int>();
         ActualSectorId = 0;
-        Economy = new(1000);
+        Economy = new(100);
         Economy.RModel = this;
         StartPlace = 5;
     }
