@@ -113,7 +113,6 @@ public partial class Menu : Form
             }
             GoToMenu();
         };
-
     }
 
     private void MakeResultLabels()
