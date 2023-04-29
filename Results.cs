@@ -121,7 +121,7 @@ public partial class Menu : Form
         PlayerResult = new()
         {
             Text = "#" + RaceModel.FinishPlace,
-            Font = new Font("Ariel", Size.Width > 2000 ? 300 : 250),
+            Font = new Font("Ariel", Size.Width > 2000 ? 300 : 200),
             Size = new Size((int)(Size.Width * 0.3), (int)(Size.Width * 0.15)),
             Location = new Point((int)(Size.Width * 0.01), (int)(Size.Width * 0.01)),
             BackColor = Color.Transparent,
@@ -131,7 +131,7 @@ public partial class Menu : Form
         Income = new()
         {
             Text = "+" + RaceModel.Income + "$",
-            Font = new Font("Ariel", 200),
+            Font = new Font("Ariel", Size.Width > 2000 ? 200 : 120),
             Size = new Size((int)(Size.Width * 0.43), (int)(Size.Width * 0.12)),
             Location = new Point(PlayerResult.Left, (int)(PlayerResult.Bottom + Size.Width * 0.05)),
             BackColor = Color.Transparent,
@@ -151,7 +151,7 @@ public partial class Menu : Form
         MaxPlace = new()
         {
             Text = "Max",
-            Font = new Font("Ariel", Size.Width > 2000 ? 100 : 80),
+            Font = new Font("Ariel", Size.Width > 2000 ? 100 : 60),
             Size = new Size(Size.Width / 4, Size.Height / 10)
         };
 

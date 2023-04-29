@@ -99,7 +99,7 @@ public partial class Menu : Form
         Talk = new()
         {
             Text = StoryTalks[0],
-            Font = new Font("Ariel", Size.Width > 2000 ? 50 : 35),
+            Font = new Font("Ariel", Size.Width > 2000 ? 50 : 30),
             Location = new Point(0, Manager.Top),
             Size = new Size(Size.Width - Manager.Width, Manager.Height),
             BackColor = Color.FromArgb(100, Color.Black),

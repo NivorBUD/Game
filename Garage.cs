@@ -46,7 +46,8 @@ public partial class Menu : Form
             Top = 0,
             Left = 0,
             Font = new Font("Times New Roman", 30),
-            BackColor = Color.Transparent
+            BackColor = Color.Transparent,
+            AutoSize = true,
         };
 
         MakeGarageCar();
@@ -161,6 +162,7 @@ public partial class Menu : Form
             button.Location = new Point(previousButton.Location.X + previousButton.Width + (int)(Size.Width * 0.05), UpSpeed.Location.Y);
             previousButton = button;
         }
+        UpSpeed.Font = new Font("Ariel", Size.Width > 2000 ? 20 : 15);
         UpdateButtons();
         UpdateBalanceInfo(Specification.Speed);
     }
