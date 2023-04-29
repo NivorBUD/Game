@@ -180,6 +180,7 @@ public partial class Menu : Form
 
     public void UpdateButtons()
     {
+        Balance.Text = "$" + RaceModel.Economy.Balance;
         var dict = new Dictionary<Specification, Button>
         {
             [Specification.DRSTime] = UpDRSTime,

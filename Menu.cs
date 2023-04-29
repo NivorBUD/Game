@@ -10,6 +10,7 @@ public partial class Menu : Form
 {
     private Button StartGame;
     private Button StartTraining;
+    private Button Exit;
     private List<Control> MenuControls;
 
     public Menu()
@@ -18,14 +19,32 @@ public partial class Menu : Form
         InitializeComponent();
         UpdForm();
         Program.RModel.MenuAndGarage = this;
+        ControlBox = false;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 
     public void GoToMenu()
     {
+        Visible = true;
         MakeMenu();
     }
 
     private void MakeMenuControls()
+    {
+        MakeStartGameButton();
+        MakeStartTrainingButton();
+        MakeExitButton();
+
+        MenuControls = new()
+        {
+            StartGame,
+            StartTraining,
+            Exit
+        };
+        UpdForm();
+    }
+
+    private void MakeStartGameButton()
     {
         StartGame = new Button()
         {
@@ -47,10 +66,13 @@ public partial class Menu : Form
                 GoToStory();
                 RaceModel.IsFirstRace = false;
             }
-            else 
+            else
                 GoToGarage();
         };
+    }
 
+    private void MakeStartTrainingButton()
+    {
         StartTraining = new Button()
         {
             Text = "Обучение",
@@ -68,13 +90,26 @@ public partial class Menu : Form
             Controls.Clear();
             GoToTraining();
         };
+    }
 
-        MenuControls = new()
+    private void MakeExitButton()
+    {
+        Exit = new Button()
         {
-            StartGame,
-            StartTraining
+            Text = "Выйти",
+            Font = new Font("Ariel", 16),
+            BackColor = Color.Transparent,
+            FlatStyle = FlatStyle.Flat,
         };
-        UpdForm();
+        Exit.Paint += Button_Paint;
+        Exit.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        Exit.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        Exit.MouseEnter += (s, e) => Exit.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, Color.Black);
+        Exit.FlatAppearance.BorderSize = 0;
+        Exit.Click += (s, e) =>
+        {
+            Application.Exit();
+        };
     }
 
     protected override void OnSizeChanged(EventArgs e)
@@ -96,22 +131,16 @@ public partial class Menu : Form
         BackgroundImage = ResizeImage(Program.RForm.bitmaps["Menu.png"], Size);
 
         StartGame.Size = new Size(Size.Width / 5, (int)(Size.Width / 6 * 0.25));
-        StartGame.Location = new Point((Size.Width - StartGame.Size.Width) / 2, Size.Height / 2);
+        StartGame.Location = new Point((Size.Width - StartGame.Width) / 2, Size.Height / 2);
 
         StartTraining.Size = new Size(Size.Width / 6, (int)(Size.Width / 6 * 0.25));
-        StartTraining.Location = new Point((Size.Width - StartTraining.Size.Width) / 2, StartGame.Location.Y + StartGame.Height);
+        StartTraining.Location = new Point((Size.Width - StartTraining.Width) / 2, StartGame.Bottom);
+
+        Exit.Size = new Size(Size.Width / 7, (int)(Size.Width / 6 * 0.25));
+        Exit.Location = new Point((Size.Width - Exit.Width) / 2, StartTraining.Bottom);
     }
 
     private Image ResizeImage(Image oldImage, Size size) => new Bitmap(oldImage, size);
-
-    public static float NewFontSize(Graphics graphics, Size size, Font font, string str)
-    {
-        SizeF stringSize = graphics.MeasureString(str, font);
-        float wRatio = size.Width / stringSize.Width;
-        float hRatio = size.Height / stringSize.Height;
-        float ratio = Math.Min(hRatio, wRatio);
-        return font.Size * ratio;
-    }
 
     private void Menu_Load(object sender, EventArgs e)
     {
@@ -126,5 +155,7 @@ public partial class Menu : Form
         MakeTrainingControls();
 
         MakeMenu();
+
+        FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 }

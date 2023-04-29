@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,13 +11,21 @@ public partial class Menu : Form
     private PictureBox Manager;
     private Button ToGarageFromStory;
     private Button ToTrainingFromStory;
+    private Button ToMenuFromFinalStory;
     private List<Control> StoryControlsList;
     private int StoryTalkNumber;
     private List<string> StoryTalks;
+    private List<string> FinalTalks;
+
 
     private void GoToStory()
     {
         MakeStory();
+    }
+
+    private void GoToFinalStory()
+    {
+        MakeFinalStory();
     }
 
     private void MakeStory()
@@ -43,12 +52,37 @@ public partial class Menu : Form
         ToTrainingFromStory.Visible = false;
     }
 
+    private void MakeFinalStory()
+    {
+        StoryTalkNumber = 0;
+        Manager.Location = new Point(Size.Width - Manager.Width, (int)(Size.Height - Manager.Height * 1.1) * 4 / 5);
+        Talk.Location = new Point(0, Manager.Top);
+        Talk.Text = FinalTalks[StoryTalkNumber];
+        MouseClick += (o, e) =>
+        {
+            if (StoryTalkNumber >= FinalTalks.Count - 1)
+            {
+                ToMenuFromFinalStory.Visible = true;
+                return;
+            }
+            StoryTalkNumber++;
+            Talk.Text = FinalTalks[StoryTalkNumber];
+        };
+        BackgroundImage = ResizeImage(Program.RForm.bitmaps["Final.png"], Size);
+        foreach (var e in new List<Control> { Talk, Manager, ToMenuFromFinalStory })
+            Controls.Add(e);
+
+        ToMenuFromFinalStory.Visible = false;
+    }
+
     private void MakeStoryControls()
     {
         StoryTalkNumber = 0;
         MakeStoryTalks();
+        MakefFinalTalks();
         MakeManagerAndTalk();
         MakeStoryButtons();
+        MakeToMenuFromFinalStoryButton();
         MakeStoryControlsList();
     }
 
@@ -72,7 +106,6 @@ public partial class Menu : Form
             ForeColor = Color.White,
             TextAlign = ContentAlignment.MiddleCenter,
             FlatStyle = FlatStyle.Flat,
-            
         };
     }
 
@@ -132,12 +165,46 @@ public partial class Menu : Form
         ToGarageFromStory.FlatAppearance.BorderSize = 0;
     }
 
+    private void MakeToMenuFromFinalStoryButton()
+    {
+        ToMenuFromFinalStory = new()
+        {
+            Size = new Size((int)(Talk.Width * 0.8), (int)(Size.Width * 0.07)),
+            Location = new Point((int)(Size.Width * 0.1), Manager.Bottom),
+            Text = "Спасибо, рад был принести победу вашей команде",
+            Font = new Font("Ariel", 50),
+            FlatStyle = FlatStyle.Flat,
+            BackColor = Color.Transparent,
+            ForeColor = Color.White,
+            TextAlign = ContentAlignment.MiddleCenter
+        };
+        ToMenuFromFinalStory.Click += (s, e) =>
+        {
+            Controls.Clear();
+            GoToMenu();
+        };
+        ToMenuFromFinalStory.Paint += Button_Paint;
+        ToMenuFromFinalStory.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        ToMenuFromFinalStory.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        ToMenuFromFinalStory.MouseEnter += (s, e) => ToMenuFromFinalStory.FlatAppearance.MouseOverBackColor = Color.FromArgb(120, Color.Black);
+        ToMenuFromFinalStory.FlatAppearance.BorderSize = 0;
+    }
+
     private void Button_Paint(object sender, PaintEventArgs e)
     {
         var obj = sender as Button;
         float fontSize = NewFontSize(e.Graphics, obj.Size, obj.Font, obj.Text);
         Font f = new("Times New Roman", fontSize, FontStyle.Regular);
         obj.Font = f;
+    }
+
+    public static float NewFontSize(Graphics graphics, Size size, Font font, string str)
+    {
+        SizeF stringSize = graphics.MeasureString(str, font);
+        float wRatio = size.Width / stringSize.Width;
+        float hRatio = size.Height / stringSize.Height;
+        float ratio = Math.Min(hRatio, wRatio);
+        return font.Size * ratio;
     }
 
     private void MakeStoryControlsList()
@@ -175,6 +242,20 @@ public partial class Menu : Form
 
             "Новичок, готов ли ты пойти в гараж за улучшениями и начать свой первый заезд или " +
             "мне сначала напомнить тебе про основные элементы управления болидом и про его улучшения?",
+        };
+    }
+
+    private void MakefFinalTalks()
+    {
+        FinalTalks = new()
+        {
+            "Ого! Ты занял первое место???",
+
+            "Блин, ты обогнал даже голландца, который до этого доминировал в гонках.",
+
+            "Да тебя будет восхволять весь состав команды. Боже, первое место у McLaren, ты добился практически невозможного, я уверен, что на следующий год у тебя будет контракт поинтереснее.",
+
+            "Ладно, поздравляю тебя, ну а мне пора встречать нового новичка, до новых встреч, пока-пока!",
         };
     }
 }

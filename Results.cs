@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace Game;
 
 public partial class Menu : Form
 {
-    private Label PlayerPlace;
+    private Label PlayerResult;
     private Label Income;
     private Label MaxPlace;
     private Label LewisPlace;
     private Label FernandoPlace;
     private Label CharlePlace;
+    private Label PlayerPlace;
     private Button RepeatRace;
     private Button ToGarageFromResults;
     private Button ToMenuFromResults;
@@ -36,6 +36,7 @@ public partial class Menu : Form
     {
         MakeResultButtons();
         MakeResultLabels();
+        MakeResultTable();
         MakeResultControlsList();
     }
 
@@ -43,12 +44,13 @@ public partial class Menu : Form
     {
         ResultControls = new()
         {
-            PlayerPlace,
+            PlayerResult,
             Income,
             MaxPlace,
             LewisPlace,
             FernandoPlace,
             CharlePlace,
+            PlayerPlace,
             RepeatRace,
             ToGarageFromResults,
             ToMenuFromResults
@@ -68,6 +70,11 @@ public partial class Menu : Form
         {
             Visible = false;
             Controls.Clear();
+            if (RaceModel.FinishPlace == 1)
+            {
+                GoToFinalStory();
+                return;
+            }
             RaceModel.Start();
         };
 
@@ -81,6 +88,11 @@ public partial class Menu : Form
         ToGarageFromResults.Click += (s, e) =>
         {
             Controls.Clear();
+            if (RaceModel.FinishPlace == 1)
+            {
+                GoToFinalStory();
+                return;
+            }
             GoToGarage();
         };
 
@@ -94,6 +106,11 @@ public partial class Menu : Form
         ToMenuFromResults.Click += (s, e) =>
         {
             Controls.Clear();
+            if (RaceModel.FinishPlace == 1)
+            {
+                GoToFinalStory();
+                return;
+            }
             GoToMenu();
         };
 
@@ -101,9 +118,9 @@ public partial class Menu : Form
 
     private void MakeResultLabels()
     {
-        PlayerPlace = new()
+        PlayerResult = new()
         {
-            Text = "#" + RaceModel.StartPlace,
+            Text = "#" + RaceModel.FinishPlace,
             Font = new Font("Ariel", 300),
             Size = new Size((int)(Size.Width * 0.3), (int)(Size.Width * 0.15)),
             Location = new Point((int)(Size.Width * 0.01), (int)(Size.Width * 0.01)),
@@ -116,7 +133,7 @@ public partial class Menu : Form
             Text = "+" + RaceModel.Income + "$",
             Font = new Font("Ariel", 200),
             Size = new Size((int)(Size.Width * 0.43), (int)(Size.Width * 0.12)),
-            Location = new Point(PlayerPlace.Left, (int)(PlayerPlace.Bottom + Size.Width * 0.05)),
+            Location = new Point(PlayerResult.Left, (int)(PlayerResult.Bottom + Size.Width * 0.05)),
             BackColor = Color.Transparent,
             ForeColor = Color.Red,
         };
@@ -124,7 +141,64 @@ public partial class Menu : Form
 
     public void UpdateResultLabels()
     {
-        PlayerPlace.Text = "#" + RaceModel.StartPlace;
+        PlayerResult.Text = "#" + RaceModel.StartPlace;
         Income.Text = "+" + RaceModel.Income + "$";
+        SetTablePlaces();
+    }
+
+    private void MakeResultTable()
+    {
+        MaxPlace = new()
+        {
+            Text = "Max",
+            Font = new Font("Ariel", 100),
+            Size = new Size(Size.Width / 4, Size.Height / 10)
+        };
+
+        LewisPlace = new()
+        {
+            Text = "Lewis",
+            Font = MaxPlace.Font,
+            Size = MaxPlace.Size,
+        };
+
+        FernandoPlace = new()
+        {
+            Text = "Fernando",
+            Font = MaxPlace.Font,
+            Size = MaxPlace.Size
+        };
+
+        CharlePlace = new()
+        {
+            Text = "Charle",
+            Font = MaxPlace.Font,
+            Size = MaxPlace.Size
+        };
+
+        PlayerPlace = new()
+        {
+            Text = "You",
+            Font = MaxPlace.Font,
+            Size = MaxPlace.Size,
+        };
+    }
+
+    private void SetTablePlaces()
+    {
+        var placeDict = new Dictionary<int, Point>();
+        var leftEdge = Size.Width / 2;
+        var height = (int)(MaxPlace.Height * 1.1);
+        placeDict.Add(1, new Point(leftEdge, Size.Height / 20));
+        placeDict.Add(2, new Point(leftEdge, placeDict[1].Y + height));
+        placeDict.Add(3, new Point(leftEdge, placeDict[2].Y + height));
+        placeDict.Add(4, new Point(leftEdge, placeDict[3].Y + height));
+        placeDict.Add(5, new Point(leftEdge, placeDict[4].Y + height));
+
+        MaxPlace.Location = RaceModel.FinishPlace > 1 ? placeDict[1] : placeDict[2];
+        LewisPlace.Location = RaceModel.FinishPlace > 2 ? placeDict[2] : placeDict[3];
+        FernandoPlace.Location = RaceModel.FinishPlace > 3 ? placeDict[3] : placeDict[4];
+        CharlePlace.Location = RaceModel.FinishPlace > 4 ? placeDict[4] : placeDict[5];
+        PlayerPlace.Location = placeDict[RaceModel.FinishPlace];
     }
 }

@@ -7,9 +7,9 @@ namespace Game;
 
 public class RaceModel
 {
-    private bool GameIsGo;
-    private int SectorNumberActual;
-    private int SectorNumberNext;
+    public bool GameIsGo;
+    public int SectorNumberActual;
+    public int SectorNumberNext;
     public List<int> Track;
     public int ActualSectorId;
     public int NextSectorId;
@@ -18,21 +18,24 @@ public class RaceModel
     public Car PlayerCar;
     public Menu MenuAndGarage;
     public int StartPlace;
+    public int FinishPlace;
     public int Income;
     public bool IsFirstRace;
 
     public RaceModel()
     {
-        IsFirstRace = true;
-        PlayerCar = new Car(new Point(50, 50), "McLaren");
+        IsFirstRace = false;
+        PlayerCar = new Car(new Point(0, 0), "McLaren");
         Track = new List<int>();
         ActualSectorId = 0;
-        Economy = new(10000);
+        Economy = new(1000);
         Economy.RModel = this;
+        StartPlace = 5;
     }
 
     public void Start()
     {
+        PlayerCar.Place = StartPlace;
         GameIsGo = false;
         ActualSectorId = 0;
         SectorNumberActual = 0;
@@ -50,16 +53,17 @@ public class RaceModel
         RaceForm.Stopwatch.Start();
     }
 
-    public void StopRace()
+    public void PauseRace()
     {
-        throw new NotImplementedException();
+        GameIsGo = false;
     }
 
-    public void FinishRace(int miliseconds, int finishPlace)
+    public void FinishRace(int finishPlace)
     {
-        Income = (6 - finishPlace) * 200;
+        FinishPlace = finishPlace;
+        Income = (6 - finishPlace) * 300;
         Economy.Balance += Income;
-        StartPlace = finishPlace;
+        StartPlace = Math.Min(finishPlace, PlayerCar.Place);
         RaceForm.Finish();
     }
 
@@ -74,8 +78,7 @@ public class RaceModel
     {
         var random = new Random();
         var prevgroup = -1;
-        Track = new();
-        Track.Add(1234);
+        Track = new() { 0, 0, 0, 0, 0 };
         for (int i = 0; i < trackLength; i++)
         {
             var group = random.Next(0, 3);
@@ -89,7 +92,7 @@ public class RaceModel
             else 
                 Track.Add(group);
             prevgroup = group;
-            var c = random.Next(0, 3);
+            var c = random.Next(0, 4);
             for (int j = 0; j < c; j++)
                 Track.Add(group * 11);
         }
@@ -107,6 +110,21 @@ public class RaceModel
         int k = (int)(PanelSize.Width * 3.0 / 1100);
         if (GameIsGo && PlayerCar.Velocity.Y != 0)
         {
+            if (RaceForm.Controls.Contains(RaceForm.OvertakenBot))
+            {
+                if (RaceForm.OvertakenBot.Bottom >= RaceForm.Player.Top &&
+                    RaceForm.OvertakenBot.Top <= RaceForm.Player.Bottom)
+                {
+                    var newX1 = (int)(x + PlayerCar.Velocity.X);
+                    var newX2 = newX1 + RaceForm.Player.Width;
+                    if ((RaceForm.OvertakenBot.Left < newX1 && RaceForm.OvertakenBot.Right > newX1) ||
+                        (RaceForm.OvertakenBot.Left < newX2 && RaceForm.OvertakenBot.Right > newX2))
+                    {
+                        PlayerCar.Velocity.X = 0;
+                        return;
+                    }    
+                }
+            }
             if ((x <= 0 && PlayerCar.Velocity.X < 0) || (x >= PanelSize.Width && PlayerCar.Velocity.X > 0)) return;
             PlayerCar.Location.X += (int)(PlayerCar.Velocity.X * k * PlayerCar.Velocity.Y / PlayerCar.MaxVelocity.Y);
         }
@@ -155,32 +173,38 @@ public class RaceModel
             switch (keyAD)
             {
                 case "A":
+                    if (RaceForm.Contains(RaceForm.OvertakenBot))
+                    {
+                        if (RaceForm.OvertakenBot.Bottom >= RaceForm.Player.Top &&
+                            RaceForm.OvertakenBot.Top <= RaceForm.Player.Bottom &&
+                            RaceForm.OvertakenBot.Right - RaceForm.Player.Left < 15 &&
+                            RaceForm.OvertakenBot.Right - RaceForm.Player.Left > -70)
+                        {
+                            PlayerCar.Velocity.X = 0;
+                            break;
+                        }
+                    }
                     if (PlayerCar.Velocity.X > -PlayerCar.MaxVelocity.X)
                         PlayerCar.Velocity.X -= controlMultiplayer;
                     PlayerCar.Velocity.X = (int)PlayerCar.Velocity.X;
                     break;
                 case "D":
+                    if (RaceForm.Contains(RaceForm.OvertakenBot))
+                    {
+                        if (RaceForm.OvertakenBot.Bottom >= RaceForm.Player.Top &&
+                            RaceForm.OvertakenBot.Top <= RaceForm.Player.Bottom &&
+                            RaceForm.OvertakenBot.Left - RaceForm.Player.Right < 15 &&
+                            RaceForm.OvertakenBot.Left - RaceForm.Player.Right > -70)
+                        {
+                            PlayerCar.Velocity.X = 0;
+                            break;
+                        }
+                    }
                     if (PlayerCar.Velocity.X < PlayerCar.MaxVelocity.X)
                         PlayerCar.Velocity.X += controlMultiplayer;
                     PlayerCar.Velocity.X = (int)PlayerCar.Velocity.X;
                     break;
             }
-        }
-    }
-
-    public void ChangeSector()
-    {
-        if (SectorNumberNext + 1 == Track.Count)
-        {
-            NextSectorId = -1;
-            ActualSectorId = Track[SectorNumberActual + 1];
-        }
-        else
-        {
-            SectorNumberActual = SectorNumberNext;
-            ActualSectorId = Track[SectorNumberActual];
-            SectorNumberNext += 1;
-            NextSectorId = Track[SectorNumberNext];
         }
     }
 

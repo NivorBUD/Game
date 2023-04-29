@@ -15,10 +15,12 @@ public class Car
     public double BoostMultiplayer;
     public Dictionary<Specification, int> SpecificationsLevels;
     public bool OnRoad;
+    public int Place;
     public string CarBrand { get; private set; }
 
     public Car(System.Drawing.Point location, string brand)
     {
+        Place = 5;
         Location = location;
         CarBrand = brand;
         DRSMaxTime = 50;
