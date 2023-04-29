@@ -33,7 +33,6 @@ public partial class Menu : Form
     private void MakeGarage()
     {
         BackgroundImage = null;
-
         foreach (var e in GarageControls)
             Controls.Add(e);
     }
@@ -162,7 +161,6 @@ public partial class Menu : Form
             button.Location = new Point(previousButton.Location.X + previousButton.Width + (int)(Size.Width * 0.05), UpSpeed.Location.Y);
             previousButton = button;
         }
-        UpSpeed.Font = new Font("Ariel", Size.Width > 2000 ? 20 : 15);
         UpdateButtons();
         UpdateBalanceInfo(Specification.Speed);
     }
@@ -237,7 +235,6 @@ public partial class Menu : Form
         }
         else 
             updateButton.Text = $"{texts[updateButton]}\n\n\n Улучшение: {RaceModel.Economy.Price[updateSpecification]}$";
-        updateButton.Font = new Font("Ariel", 20);
     }
 
     public void UpdateProgressBars()

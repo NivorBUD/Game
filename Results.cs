@@ -120,7 +120,7 @@ public partial class Menu : Form
         PlayerResult = new()
         {
             Text = "#" + RaceModel.FinishPlace,
-            Font = new Font("Ariel", Size.Width > 2000 ? 300 : 200),
+            Font = new Font("Ariel", Size.Width > 2000 ? 300 : 190),
             Size = new Size((int)(Size.Width * 0.3), (int)(Size.Width * 0.15)),
             Location = new Point((int)(Size.Width * 0.01), (int)(Size.Width * 0.01)),
             BackColor = Color.Transparent,

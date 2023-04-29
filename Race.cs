@@ -197,8 +197,9 @@ public partial class Race : Form
 
     private void MakeDir(DirectoryInfo imagesDirectory = null)
     {
+        var way = @"..\..\..\Game\Images";
         if (imagesDirectory == null)
-            imagesDirectory = new DirectoryInfo("Images");
+            imagesDirectory = new DirectoryInfo(way);
         foreach (var e in imagesDirectory.GetFiles("*.png"))
             bitmaps[e.Name] = (Bitmap)Image.FromFile(e.FullName);
         InitializeComponent();
