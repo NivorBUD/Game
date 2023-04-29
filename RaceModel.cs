@@ -24,7 +24,7 @@ public class RaceModel
 
     public RaceModel()
     {
-        IsFirstRace = false;
+        IsFirstRace = true;
         PlayerCar = new Car(new Point(0, 0), "McLaren");
         Track = new List<int>();
         ActualSectorId = 0;

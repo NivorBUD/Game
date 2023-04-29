@@ -99,7 +99,7 @@ public partial class Menu : Form
         Talk = new()
         {
             Text = StoryTalks[0],
-            Font = new Font("Ariel", 50),
+            Font = new Font("Ariel", Size.Width > 2000 ? 50 : 35),
             Location = new Point(0, Manager.Top),
             Size = new Size(Size.Width - Manager.Width, Manager.Height),
             BackColor = Color.FromArgb(100, Color.Black),
@@ -122,7 +122,7 @@ public partial class Menu : Form
             Size = new Size((int)(Size.Width * 0.35), (int)(Size.Width * 0.07)),
             Location = new Point(ToGarageFromStory.Right + Size.Width / 20, Manager.Bottom),
             Text = "А ну, напомни в двух словах, как\nдолжен управлять этим пепелацом.",
-            Font = new Font("Ariel", 50),
+            Font = Talk.Font,
             FlatStyle = FlatStyle.Flat,
             BackColor = Color.Transparent,
             ForeColor = Color.White,
@@ -147,7 +147,7 @@ public partial class Menu : Form
             Size = new Size((int)(Size.Width * 0.35), (int)(Size.Width * 0.07)),
             Location = new Point(Size.Width / 7, Manager.Bottom),
             Text = "В целом, я и так помню,\nкак управлять болидом,\nпошли в гараж и гонять!",
-            Font = new Font("Ariel", 50),
+            Font = Talk.Font,
             FlatStyle = FlatStyle.Flat,
             BackColor = Color.Transparent,
             ForeColor = Color.White,

@@ -64,7 +64,7 @@ public partial class Menu : Form
             Size = new Size((int)(Size.Width * 0.2), (int)(Size.Width * 0.07)),
             Location = new Point((int)(Size.Width * 0.05), (int)(Size.Height - Size.Width * 0.1)),
             Text = "ПОВТОРИТЬ ЗАЕЗД",
-            Font = new Font("Ariel", 30)
+            Font = new Font("Ariel", Size.Width > 2000 ? 30 : 23)
         };
         RepeatRace.Click += (s, e) => 
         {
@@ -83,7 +83,7 @@ public partial class Menu : Form
             Size = new Size((int)(Size.Width * 0.4), RepeatRace.Height),
             Location = new Point((int)(RepeatRace.Right + Size.Width * 0.05), RepeatRace.Top),
             Text = "В ГАРАЖ",
-            Font = new Font("Ariel", 30)
+            Font = new Font("Ariel", Size.Width > 2000 ? 30 : 23)
         };
         ToGarageFromResults.Click += (s, e) =>
         {
@@ -101,7 +101,7 @@ public partial class Menu : Form
             Size = new Size((int)(Size.Width * 0.2), RepeatRace.Height),
             Location = new Point((int)(ToGarageFromResults.Right + Size.Width * 0.05), RepeatRace.Top),
             Text = "В МЕНЮ",
-            Font = new Font("Ariel", 30)
+            Font = new Font("Ariel", Size.Width > 2000 ? 30 : 23)
         };
         ToMenuFromResults.Click += (s, e) =>
         {
@@ -121,7 +121,7 @@ public partial class Menu : Form
         PlayerResult = new()
         {
             Text = "#" + RaceModel.FinishPlace,
-            Font = new Font("Ariel", 300),
+            Font = new Font("Ariel", Size.Width > 2000 ? 300 : 250),
             Size = new Size((int)(Size.Width * 0.3), (int)(Size.Width * 0.15)),
             Location = new Point((int)(Size.Width * 0.01), (int)(Size.Width * 0.01)),
             BackColor = Color.Transparent,
@@ -151,7 +151,7 @@ public partial class Menu : Form
         MaxPlace = new()
         {
             Text = "Max",
-            Font = new Font("Ariel", 100),
+            Font = new Font("Ariel", Size.Width > 2000 ? 100 : 80),
             Size = new Size(Size.Width / 4, Size.Height / 10)
         };
 

@@ -62,7 +62,7 @@ public partial class Menu : Form
         {
             Size = new Size((int)(Size.Width * 0.4), (int)(Size.Width * 0.07)),
             Text = "В гараж",
-            Font = new Font("Ariel", 40),
+            Font = new Font("Ariel", Size.Width > 2000 ? 40 : 30),
             BackColor = Color.Transparent,
             ForeColor = Color.White,
             FlatStyle = FlatStyle.Flat,

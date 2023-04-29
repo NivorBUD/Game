@@ -44,8 +44,8 @@ public partial class Menu : Form
         {
             Text = "$0",
             Top = 0,
-            Left = Size.Width - 100,
-            Font = new Font("Times New Roman", 16),
+            Left = 0,
+            Font = new Font("Times New Roman", 30),
             BackColor = Color.Transparent
         };
 
@@ -124,7 +124,8 @@ public partial class Menu : Form
             Size = new Size(Size.Width / 10, Size.Height / 15),
             Top = (int)(Size.Height * 0.85),
             Left = (int)(Size.Width * 0.85),
-            Text = "Начать гонку"
+            Text = "Начать гонку",
+            Font = new Font("Ariel", Size.Width > 2000 ? 20 : 15)
         };
 
         StartRace.Click += (s, e) =>
@@ -153,7 +154,7 @@ public partial class Menu : Form
         {
             button.Enabled = true;
             button.Text = $"{texts[button]}\n\n\n Улучшение: 100$";
-            button.Font = new Font("Ariel", 20);
+            button.Font = new Font("Ariel", Size.Width > 2000 ? 20 : 15);
             button.Click += UpButton_Click;
             if (button == UpSpeed) continue;
             button.Size = UpSpeed.Size;
