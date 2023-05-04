@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Game.exe" version="1.0.0.12" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Game.exe" version="1.0.0.16" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Game" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Game.exe" size="54792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Game.exe" size="57864">
       <assemblyIdentity name="Game" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>snEBFl8MDjZNj/qfOlDflC+WFdKnXk3dG7r4XSqDBt0=</dsig:DigestValue>
+        <dsig:DigestValue>FLVasbFTRdB8sjOUvMkWeMvjNRlq7AJVuNR6XCVUQco=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -72,6 +72,780 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background0.png" size="4005239">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>An1xztvG9vJ1v128xkPfubwWWZUjWNMOqkZ6vOv+gCw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background1.png" size="4193098">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>47N+1LkRztezZQEgFRh8u2T5+IpnWqwHXstFiFZpyiE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background10.png" size="5314408">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>G7orZiRvDvcXWhau0l7XNtjZ37PWjUiGHad4RxzjBwQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background100.png" size="5856275">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1iAMuAqFASymW9bRe6B19M96R/led2l6pWHkWPmcfFo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background11.png" size="5688390">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9yxvYrrJmoesjeVeJ7YhZTM0F64qGxMFn+PtNPt160E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background12.png" size="4984668">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xyXFToX+bYFrAYNLcfRXviTJRT8kb0DhyIfVUX9frYs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background2.png" size="5239431">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gyUsSiHwWGGGnU7uMD2X+5koLtNghadyhtIFYTiRnMg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background20.png" size="5393301">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oGJrZD4JMf8TdNYg1iKBaFABZnBGqYexqYod17f8lP8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background21.png" size="4936019">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>n9T4NEnBnYbJ/cXY4qH8k89Kl2a3DvAAnXhOEo4O1sI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Background22.png" size="5763540">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>I9YpxNoXPpY5ProINHUqMOSl339P0bTeLz0nBOLP7PA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Charle.png" size="36695">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>l6pRxO+0lMkj1Z9wiPuG52+uSv88ns85utHOT/emkbY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\DRSoff.png" size="3684">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>D9lyj6rnPEjuycSy2OTE51Dh5AcNmuTIlR+/StYKPmc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\DRSon.png" size="3793">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8K/dzrXyAWy+2QevLhPcJigiyU0dwsZJXLnYHMiIX8c=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Fernando.png" size="42158">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hzlsidgaf8ZvREMz5/pqRzOWpLP81y/QtgMDtG46bMM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Final.png" size="2005375">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>sbZoAw9ExGc1gHqVWNKHnMIIy64ERg51cjfwinWcEf4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Lewis.png" size="38933">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>93HUNIyROqf4x5yjSrAvvcLneX1TXSzWEpTKMieDweg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Light0.png" size="14959">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>iNMdJ23JPCgAPc30SlYZYRCAIs1XVG5Oqm8UlwfALCg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Light1.png" size="17534">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qqT0GWOep8ylJXohjs30fpT+5YABvUuw7sCX62cyEnc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Light2.png" size="19667">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>jmeWU7JF+1dvplJojPo7oAIG7MAbyP4JAV4XzcWEgHY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Light3.png" size="19995">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>pdyG8Na7V3UtatcN8Q5Ng6/J/B6i4Hr8ldgvutRZ8so=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Light4.png" size="19353">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wD/oXpDdVo68L1L7xgJJEJsMJNSzOZdtlOGmxq3e5s0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Light5.png" size="18821">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Q7/jzkL4SdYNgzSpXOlxIBvZAGsTGh6d3jF1EF76M9k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Manager.png" size="235032">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>NRKE4Ax6DSGM+a8z4+NT5BTaVGM8t69EDOg0lVPcXzY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Max.png" size="38436">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xWeLtkjhW1QLHTL1d8WLHR8YDT6u9ylaIijDUIy2104=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren.png" size="37430">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zUNoYLhFsPi6Br0tCBhwXE6TNQL1eAmdplTrkZ0pZ6g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren0.png" size="37430">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zUNoYLhFsPi6Br0tCBhwXE6TNQL1eAmdplTrkZ0pZ6g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren1.png" size="38902">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>jn3jVSoaNZIfneJag2a7n5+LHjN4zpj+d8JhO6kEWxo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-1.png" size="39050">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Jd5rU/mIQo/MCKg3G7D6U5EKlsOvmSV5Ds28+oJQpJA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren10.png" size="44038">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>C2E2LVJxqsZTNZsQWw/vLZI5uWYd3DFKUXQNE8JGvRw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-10.png" size="43487">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lxgrEkryGK2VN5WAxX8rfxJOqu4V0zmtkSJdrXG0Ll8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren11.png" size="43605">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Kxt9O8ArjnGa7jAkg7CgfILywzFnw7aHyUerQxKDUrc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-11.png" size="43337">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vCmG8WTYWjw/v4SRoOMNvaH4G4KCyg+cnZUZnUafYSo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren12.png" size="43603">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>l5TgNYVcnvHAGlkoXjxUNthoTe52nF+NNPvwJShU7Lc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-12.png" size="43323">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>4pJGrpOLLG8tRYY1pTA8JIjBW1hlNiHZ/EaiBIJYTdU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren2.png" size="41163">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>t0hBhfrw25KyBN4LybIrlgBFe9hTp32KW4q9la9hk2M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-2.png" size="41183">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HrjvGhkj0cJOu/vE7P7GXWVentoq2NepGSQTIdFRnaw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren3.png" size="41849">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ufgskIUew2XbfsjNoWn3orJNT3voltuw/HwIlRxJVvQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-3.png" size="41757">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ewh1ReHm+pVbCVxvNInx8eEO/89fz+aQmF5LaN8PiJo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren4.png" size="42593">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ssn73S20Gnhf6QzO7Onpqsh6Do7xOH7C5i93g9jhCds=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-4.png" size="42423">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vZA3cV/954FFZkp+ZWphQRFeC6/3zks3SAbf+JR5ErM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren5.png" size="43163">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>WFXvZ43moqIXbqpuxCT5HuS3ze//CZRtd/HOUAkEyME=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-5.png" size="43177">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>JISldj5hFpod80nX0TJJpnDJPrwMfo3+BDOuz0waDxQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren6.png" size="43583">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>dJre7zAetNMXLhf1k0Cr/EoDDMpxiNk0HuS9GBuKOZo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-6.png" size="43341">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>OsE2uyPSORfXwjIwDF9gfzZiZ1ENzSzk5vB2/WXNijE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren7.png" size="43920">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ruMdJVQpMBNejDN3ctJmyjYxi0TdFvml5vuJ4Y5dJJk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-7.png" size="43594">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9ji6lmC8GlF68PdpHhtmkYjyx+vSWDht2xG/ADSPvMk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren8.png" size="44180">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2af47Yu56FQNLZkL5YadhUV7PMqfiQ9qxhCXLAQGdMw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-8.png" size="43711">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>CFC21ylNm/zkjhbS2m6a9hjY+2x3QdGQBJi3WrVxPD4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren9.png" size="43795">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>EKYGRzgoOOrddy1MjJGhymMW240KduUxPn57gVofAsQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\McLaren-9.png" size="43250">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>LGw7Tg1ZyMyh7oNYDN7B1cuEbLrRNkr++UQNwts6jc8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Menu.png" size="27670430">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vo8baSt6f1ySk+DWxZKDeSDnCY2yGIiI4g4F5u10Ol4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Menu0.jpg" size="13905646">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ebvGnsWDTmuLverQIhXTD2J4Xq44MFh2MvmYmXy3GEY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Menu1.png" size="5265901">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>LDJQAI3L4dkQgDLkqQFRfkSr5CytPLxK8DfbXkJDgWU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer0.png" size="59860">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XeZ8E4taqlFPKr0Llo+l8o6QWfhE+pS2D6emGDvpSxc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer1.png" size="59865">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>a1M40NvxTA3Qg/wWBAkacPaMQRqkZipfOX/BMqFf+Xw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer10.png" size="59855">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SUeY6zgkYO9oGm6jItdH8MFxvJP9gc1huswsKOg4MCI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer11.png" size="59707">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>M6+MYCkhBLd03pNXjqSMVPnlqFpSi+mZbx7vcsbeoPY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer12.png" size="59601">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>dvVVLth2I3K3vxj4Z2TcdD6JaHlpF5e3MCzHnzagT4A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer13.png" size="59460">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tjJOzovx274tebE6dB0wH4IakClqhPMkidV3YlQ2cWk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer14.png" size="59455">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>m08lyQWqakkBFcngTnzzvUyBrdmACWs7bXlyFMyZbA0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer15.png" size="59542">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>AXOfV689OYJ1eRxtpxSMWkBLt/U8PJyj7NE5USH8UY8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer16.png" size="59716">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>KKjOKW2CIhRJ3V3xaGtDuMf3nIm4MdYLk1FKtB9Fw/4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer17.png" size="59820">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kIJrNwTDH4CyzAujZJu4grL9VUvkWcavsVd/uYyKgXc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer18.png" size="59878">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gxHRU70gQ0GZaP+Gk3TgaKxDuu5sctRCjv5Is3HX2ds=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer19.png" size="59881">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>f64WWwse0bsWh+68BiDIkMdHv1RPLnB+m3aA/GAeBJ4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer2.png" size="59807">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3KAd38zeE/Hw8bQi4k2p7mbJwxc2XdjKJZfQxTayJRg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer20.png" size="59846">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wFBNlAqBRmuWPQlKfv9kwttUrLaa5Eao182kSD7cb8A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer21.png" size="59357">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>VSDn2baV1A442x//lI6po0pjAHs3SdUhcS9yngDBEBc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer22.png" size="58910">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>VjT2tk7Yo+4KwNBloeMQ60Lb13hhOlX1by7vwMFyHJw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer23.png" size="59368">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>KxHUdQJLxnrlL7da7+W8TOvxbkYnYalgWkiCzqaL3sA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer24.png" size="59609">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>OOzwBac/6jldZVYzDA5p8iyu3mSrYpMOQeeejmH1v8g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer25.png" size="59814">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>nozxo/TJKmxFAPhXz/rSjRLgAEICC7bVnPbBIuVZ1FE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer26.png" size="59978">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/1rIO9amikYG5acz5qXFMIdw36nlyNxDkbtznXDUyxM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer27.png" size="59891">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8qtPkMjX3SbGZEIkZ4bvMYSG88mT+/AQNEOVS/UGcXg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer28.png" size="59856">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rwwE1V8VUGS+51udzxGH97qnaLCMKF/dDzU/fGVPfOA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer29.png" size="59761">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>V9eBveKEk/covJ7A9g4pRHKIArjr2p6Tn93lyDR7OSA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer3.png" size="59270">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>L9t90Lruxa8UhgwFEjxL/dh6iQd/OsFrIumxSr8wDvs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer30.png" size="59537">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>QrFdP1qckNC8SRxD2RujVXXyPdC/vJ3G23aDPgrV1no=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer4.png" size="58993">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3MhImkwnY034c4Rn5rMs6LHLzHtweowkD0hyp0t1WFE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer5.png" size="59648">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kx0Pc3T2cIQTOIk2Am8uZCKt5cdE6tXQ2mueBzFWvSc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer6.png" size="59939">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Wb7z0CayOmF+mj4Dp32XRHbAo2Vc/znT5z/fN8nkGVc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer7.png" size="59859">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vDnOzZojW5Mclu6Q0EuG1JYHc5uzbF5+S5dWZS1qhvc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer8.png" size="60039">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>jaL62mTuDuZpTp/okKEkVb/QYpz/W5b2C2KHTIUcKa0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Speedometer9.png" size="59921">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>YMEzJy5G455bJV6JgvT7lCiQdloFhZFkZCgs2cSQ4EU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Story.png" size="2880928">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mp+oUYJmOiI/R9hvdS52T7RpIqTRtl0IRNEpa6axvVw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GameImages\Training.png" size="2685957">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DEExF8A8pAk2/L6z/6+f6X2ny0e4OoCfqSKH8xTBrJs=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

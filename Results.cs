@@ -70,8 +70,9 @@ public partial class Menu : Form
         {
             Visible = false;
             Controls.Clear();
-            if (RaceModel.FinishPlace == 1)
+            if (RaceModel.FinishPlace == 1 && RaceModel.IsFirstWin)
             {
+                RaceModel.IsFirstWin = false;
                 GoToFinalStory();
                 return;
             }
@@ -88,8 +89,9 @@ public partial class Menu : Form
         ToGarageFromResults.Click += (s, e) =>
         {
             Controls.Clear();
-            if (RaceModel.FinishPlace == 1)
+            if (RaceModel.FinishPlace == 1 && RaceModel.IsFirstWin)
             {
+                RaceModel.IsFirstWin = false;
                 GoToFinalStory();
                 return;
             }
@@ -106,8 +108,9 @@ public partial class Menu : Form
         ToMenuFromResults.Click += (s, e) =>
         {
             Controls.Clear();
-            if (RaceModel.FinishPlace == 1)
+            if (RaceModel.FinishPlace == 1 && RaceModel.IsFirstWin)
             {
+                RaceModel.IsFirstWin = false;
                 GoToFinalStory();
                 return;
             }

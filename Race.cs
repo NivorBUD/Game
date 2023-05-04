@@ -21,7 +21,12 @@ public partial class Race : Form
     private static Image NextImage;
     private static PictureBox Speedometer;
     public int TimeOffTheRoad;
-    private static List<uint> RoadValues;
+    public int TimeNotMaxSpeed;
+    public int TimeWithOutOvertakes;
+    private List<uint> RoadValues;
+    private bool IsOvertaking;
+    public bool BotIsOvertaking;
+
 
     public Timer DRSTimer;
     public Timer Stopwatch; // секундомер 
@@ -60,6 +65,8 @@ public partial class Race : Form
 
     public void Start()
     {
+        IsOvertaking = false;
+        BotIsOvertaking = false;
         Visible = true;
         BackColor = Color.GhostWhite;
         BackColor = Color.White;
@@ -67,6 +74,8 @@ public partial class Race : Form
         LightN = 0;
         MiliSeconds = 0;
         TimeOffTheRoad = 0;
+        TimeNotMaxSpeed = 0;
+        TimeWithOutOvertakes = 20;
         Light.Image = ResizeImage(bitmaps["Light" + LightN + ".png"], Light.Size);
         Light.Location = new Point(Size.Width / 2 - Light.Size.Width / 2, Size.Height / 10);
         Controls.Add(Light); 
@@ -197,7 +206,7 @@ public partial class Race : Form
 
     private void MakeDir(DirectoryInfo imagesDirectory = null)
     {
-        var way = @"..\..\..\Game\Images";
+        var way = @"..\..\..\Game\GameImages\";
         if (imagesDirectory == null)
             imagesDirectory = new DirectoryInfo(way);
         foreach (var e in imagesDirectory.GetFiles("*.png"))
@@ -275,14 +284,16 @@ public partial class Race : Form
             ChangeImages();
         }
 
-        if (CanOvertake() &&
-            ((RaceModel.ActualSectorId == 11 && RaceModel.NextSectorId == 11) ||
+        if (((RaceModel.ActualSectorId == 11 && RaceModel.NextSectorId == 11) ||
             (RaceModel.ActualSectorId == 22 && RaceModel.NextSectorId == 22) ||
             (RaceModel.ActualSectorId == 0 && RaceModel.NextSectorId == 0)) &&
             RaceModel.SectorNumberActual >= 6 && !Controls.Contains(OvertakenBot))
-            OvertakeBot();
+            if (CanBeOvertaken())
+                OvertakeBot();
+            else if (CanOvertake())
+                OvertakeBot();
 
-        MoveOvertakenBot();
+       MoveBotAtOvertaking();
 
         BackColor = Color.White;
         BackColor = Color.Wheat;
@@ -329,13 +340,6 @@ public partial class Race : Form
         return leftSideOnRoad || rightSideOnRoad;
     }
 
-    private void ResizeBackghroundImages()
-    {
-        var a = new List<int> { 0, 1, 2, 10, 11, 12, 20, 21, 22, 100};
-        foreach (var e in a)
-            bitmaps["Background" + e + ".png"] = ResizeImage(bitmaps["Background" + e + ".png"], Size);
-    }
-
     public void ChangeSector()
     {
         if (Controls.Contains(OvertakenBot))
@@ -352,8 +356,13 @@ public partial class Race : Form
             RaceModel.SectorNumberNext += 1;
             RaceModel.NextSectorId = RaceModel.Track[RaceModel.SectorNumberNext];
         }
-        if (TimeOffTheRoad == 1000)
-            TimeOffTheRoad = 9;
+    }
+
+    private void ResizeBackghroundImages()
+    {
+        var a = new List<int> { 0, 1, 2, 10, 11, 12, 20, 21, 22, 100 };
+        foreach (var e in a)
+            bitmaps["Background" + e + ".png"] = ResizeImage(bitmaps["Background" + e + ".png"], Size);
     }
 
     protected override CreateParams CreateParams // ???

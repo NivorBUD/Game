@@ -15,7 +15,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -142,6 +142,94 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GameImages\Background0.png" />
+    <Content Include="GameImages\Background1.png" />
+    <Content Include="GameImages\Background10.png" />
+    <Content Include="GameImages\Background100.png" />
+    <Content Include="GameImages\Background11.png" />
+    <Content Include="GameImages\Background12.png" />
+    <Content Include="GameImages\Background2.png" />
+    <Content Include="GameImages\Background20.png" />
+    <Content Include="GameImages\Background21.png" />
+    <Content Include="GameImages\Background22.png" />
+    <Content Include="GameImages\Charle.png" />
+    <Content Include="GameImages\DRSoff.png" />
+    <Content Include="GameImages\DRSon.png" />
+    <Content Include="GameImages\Fernando.png" />
+    <Content Include="GameImages\Final.png" />
+    <Content Include="GameImages\Lewis.png" />
+    <Content Include="GameImages\Light0.png" />
+    <Content Include="GameImages\Light1.png" />
+    <Content Include="GameImages\Light2.png" />
+    <Content Include="GameImages\Light3.png" />
+    <Content Include="GameImages\Light4.png" />
+    <Content Include="GameImages\Light5.png" />
+    <Content Include="GameImages\Manager.png" />
+    <Content Include="GameImages\Max.png" />
+    <Content Include="GameImages\McLaren-1.png" />
+    <Content Include="GameImages\McLaren-10.png" />
+    <Content Include="GameImages\McLaren-11.png" />
+    <Content Include="GameImages\McLaren-12.png" />
+    <Content Include="GameImages\McLaren-2.png" />
+    <Content Include="GameImages\McLaren-3.png" />
+    <Content Include="GameImages\McLaren-4.png" />
+    <Content Include="GameImages\McLaren-5.png" />
+    <Content Include="GameImages\McLaren-6.png" />
+    <Content Include="GameImages\McLaren-7.png" />
+    <Content Include="GameImages\McLaren-8.png" />
+    <Content Include="GameImages\McLaren-9.png" />
+    <Content Include="GameImages\McLaren.png" />
+    <Content Include="GameImages\McLaren0.png" />
+    <Content Include="GameImages\McLaren1.png" />
+    <Content Include="GameImages\McLaren10.png" />
+    <Content Include="GameImages\McLaren11.png" />
+    <Content Include="GameImages\McLaren12.png" />
+    <Content Include="GameImages\McLaren2.png" />
+    <Content Include="GameImages\McLaren3.png" />
+    <Content Include="GameImages\McLaren4.png" />
+    <Content Include="GameImages\McLaren5.png" />
+    <Content Include="GameImages\McLaren6.png" />
+    <Content Include="GameImages\McLaren7.png" />
+    <Content Include="GameImages\McLaren8.png" />
+    <Content Include="GameImages\McLaren9.png" />
+    <Content Include="GameImages\Menu.png" />
+    <Content Include="GameImages\Menu0.jpg" />
+    <Content Include="GameImages\Menu1.png" />
+    <Content Include="GameImages\Speedometer0.png" />
+    <Content Include="GameImages\Speedometer1.png" />
+    <Content Include="GameImages\Speedometer10.png" />
+    <Content Include="GameImages\Speedometer11.png" />
+    <Content Include="GameImages\Speedometer12.png" />
+    <Content Include="GameImages\Speedometer13.png" />
+    <Content Include="GameImages\Speedometer14.png" />
+    <Content Include="GameImages\Speedometer15.png" />
+    <Content Include="GameImages\Speedometer16.png" />
+    <Content Include="GameImages\Speedometer17.png" />
+    <Content Include="GameImages\Speedometer18.png" />
+    <Content Include="GameImages\Speedometer19.png" />
+    <Content Include="GameImages\Speedometer2.png" />
+    <Content Include="GameImages\Speedometer20.png" />
+    <Content Include="GameImages\Speedometer21.png" />
+    <Content Include="GameImages\Speedometer22.png" />
+    <Content Include="GameImages\Speedometer23.png" />
+    <Content Include="GameImages\Speedometer24.png" />
+    <Content Include="GameImages\Speedometer25.png" />
+    <Content Include="GameImages\Speedometer26.png" />
+    <Content Include="GameImages\Speedometer27.png" />
+    <Content Include="GameImages\Speedometer28.png" />
+    <Content Include="GameImages\Speedometer29.png" />
+    <Content Include="GameImages\Speedometer3.png" />
+    <Content Include="GameImages\Speedometer30.png" />
+    <Content Include="GameImages\Speedometer4.png" />
+    <Content Include="GameImages\Speedometer5.png" />
+    <Content Include="GameImages\Speedometer6.png" />
+    <Content Include="GameImages\Speedometer7.png" />
+    <Content Include="GameImages\Speedometer8.png" />
+    <Content Include="GameImages\Speedometer9.png" />
+    <Content Include="GameImages\Story.png" />
+    <Content Include="GameImages\Training.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -74,6 +74,10 @@ public partial class Race : Form
         RaceModel.PlayerCar.OnRoad = CheckRoad();
         if (!RaceModel.PlayerCar.OnRoad)
             TimeOffTheRoad++;
+        if (RaceModel.PlayerCar.Velocity.Y <= RaceModel.PlayerCar.MaxVelocity.Y - 2 && RaceModel.SectorNumberActual > 2)
+            TimeNotMaxSpeed++;
+        if (!Controls.Contains(OvertakenBot))
+            TimeWithOutOvertakes++;
     }
 
     private void UpdateTimer_Tick(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -53,6 +54,8 @@ public partial class Race : Form
         Exit.Location = new Point((Size.Width - Exit.Width) / 2, Size.Height / 2 + Exit.Height);
         Exit.Click += (s, e) =>
         {
+            foreach (var c in new List<Control>() { Charle, Fernando, Lewis, Max })
+                Controls.Remove(c);
             Visible = false;
             RaceModel.MenuAndGarage.GoToMenu();
         };

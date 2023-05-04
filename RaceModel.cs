@@ -21,10 +21,12 @@ public class RaceModel
     public int FinishPlace;
     public int Income;
     public bool IsFirstRace;
+    public bool IsFirstWin;
 
     public RaceModel()
     {
         IsFirstRace = true;
+        IsFirstWin = true;
         PlayerCar = new Car(new Point(0, 0), "McLaren");
         Track = new List<int>();
         ActualSectorId = 0;
@@ -174,7 +176,6 @@ public class RaceModel
             {
                 case "A":
                     if (RaceForm.Contains(RaceForm.OvertakenBot))
-                    {
                         if (RaceForm.OvertakenBot.Bottom >= RaceForm.Player.Top &&
                             RaceForm.OvertakenBot.Top <= RaceForm.Player.Bottom &&
                             RaceForm.OvertakenBot.Right - RaceForm.Player.Left < 15 &&
@@ -183,14 +184,17 @@ public class RaceModel
                             PlayerCar.Velocity.X = 0;
                             break;
                         }
-                    }
                     if (PlayerCar.Velocity.X > -PlayerCar.MaxVelocity.X)
                         PlayerCar.Velocity.X -= controlMultiplayer;
                     PlayerCar.Velocity.X = (int)PlayerCar.Velocity.X;
+                    if (RaceForm.BotIsOvertaking)
+                        if (PlayerCar.Velocity.X > 1)
+                            PlayerCar.Velocity.X = 1;
+                        else if (PlayerCar.Velocity.X < -1)
+                            PlayerCar.Velocity.X = -1;
                     break;
                 case "D":
                     if (RaceForm.Contains(RaceForm.OvertakenBot))
-                    {
                         if (RaceForm.OvertakenBot.Bottom >= RaceForm.Player.Top &&
                             RaceForm.OvertakenBot.Top <= RaceForm.Player.Bottom &&
                             RaceForm.OvertakenBot.Left - RaceForm.Player.Right < 15 &&
@@ -199,10 +203,14 @@ public class RaceModel
                             PlayerCar.Velocity.X = 0;
                             break;
                         }
-                    }
                     if (PlayerCar.Velocity.X < PlayerCar.MaxVelocity.X)
                         PlayerCar.Velocity.X += controlMultiplayer;
                     PlayerCar.Velocity.X = (int)PlayerCar.Velocity.X;
+                    if (RaceForm.BotIsOvertaking)
+                        if (PlayerCar.Velocity.X > 1)
+                            PlayerCar.Velocity.X = 1;
+                        else if (PlayerCar.Velocity.X < -1)
+                            PlayerCar.Velocity.X = -1;
                     break;
             }
         }
@@ -215,7 +223,7 @@ public class RaceModel
         switch (specification)
         {
             case Specification.Speed:
-                PlayerCar.MaxVelocity.Y += 2;
+                PlayerCar.MaxVelocity = new System.Windows.Vector(PlayerCar.MaxVelocity.X, PlayerCar.MaxVelocity.Y + 2);
                 break;
             case Specification.DRSTime:
                 PlayerCar.DRSMaxTime += 10;

@@ -1,0 +1,17 @@
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\bin\Release\Game.exe.config
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\bin\Release\Game.exe.manifest
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\bin\Release\Game.application
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\bin\Release\Game.exe
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\bin\Release\Game.pdb
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\bin\Release\WinFormAnimation.dll
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.csproj.AssemblyReference.cache
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.csproj.SuggestedBindingRedirects.cache
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.Menu.resources
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.Race.resources
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.csproj.GenerateResource.cache
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.csproj.CoreCompileInputs.cache
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.exe.manifest
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.application
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.csproj.CopyComplete
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.exe
+D:\Слава\Институт\Программирование\Ulearn\Игра\Race_game\Game\obj\Release\Game.pdb
