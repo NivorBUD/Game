@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -199,8 +200,7 @@ public partial class Race : Form
             return;
 
         OvertakenBot.Location = new Point(OvertakenBot.Location.X, OvertakenBot.Location.Y + delt);
-        if (delt < 0)
-            MoveOvertakingBotHorizontal();
+        MoveOvertakingBotHorizontal();
     }
 
     public void MoveOvertakingBotHorizontal()
@@ -228,9 +228,9 @@ public partial class Race : Form
         if (RaceModel.ActualSectorId == 22)
         {
             var roadCenter = Size.Width * 0.26;
-            if (playerCenterLoc <= roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Left - k, OvertakenBot.Top)))
+            if (playerCenterLoc >= roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Left - k, OvertakenBot.Top)))
                 OvertakenBot.Location = new Point(OvertakenBot.Left - k, OvertakenBot.Top);
-            if (playerCenterLoc > roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Right + k, OvertakenBot.Top)))
+            if (playerCenterLoc < roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Right + k, OvertakenBot.Top)))
                 OvertakenBot.Location = new Point(OvertakenBot.Left + k, OvertakenBot.Top);
         }
     }
@@ -410,3 +410,37 @@ public partial class Race : Form
         PlayerPlace.Location = new Point(left, CharlePlace.Bottom);
     }
 }
+
+
+//if (RaceModel.ActualSectorId == 0)
+//        {
+//            var roadCenter = Size.Width / 2;
+//            if (playerCenterLoc >= roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Left - k, OvertakenBot.Top)) && 
+//                OvertakenBot.Left - k > Player.Right + 10 && OvertakenBot.Top > Player.Bottom)
+//                OvertakenBot.Location = new Point(OvertakenBot.Left - k, OvertakenBot.Top);
+//            if (playerCenterLoc<roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Right + k, OvertakenBot.Top)) &&
+//                OvertakenBot.Right + k<Player.Left - 10 && OvertakenBot.Top> Player.Bottom)
+//                OvertakenBot.Location = new Point(OvertakenBot.Left + k, OvertakenBot.Top);
+//        }
+
+//        if (RaceModel.ActualSectorId == 11)
+//{
+//    var roadCenter = Size.Width * 0.73;
+//    if (playerCenterLoc >= roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Left - k, OvertakenBot.Top)) &&
+//        OvertakenBot.Left - k > Player.Right + 10 && OvertakenBot.Top > Player.Bottom)
+//        OvertakenBot.Location = new Point(OvertakenBot.Left - k, OvertakenBot.Top);
+//    if (playerCenterLoc < roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Right + k, OvertakenBot.Top)) &&
+//        OvertakenBot.Right + k < Player.Left - 10 && OvertakenBot.Top > Player.Bottom)
+//        OvertakenBot.Location = new Point(OvertakenBot.Left + k, OvertakenBot.Top);
+//}
+
+//if (RaceModel.ActualSectorId == 22)
+//{
+//    var roadCenter = Size.Width * 0.26;
+//    if (playerCenterLoc >= roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Left - k, OvertakenBot.Top)) &&
+//        OvertakenBot.Left - k > Player.Right + 10 && OvertakenBot.Top > Player.Bottom)
+//        OvertakenBot.Location = new Point(OvertakenBot.Left - k, OvertakenBot.Top);
+//    if (playerCenterLoc < roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Right + k, OvertakenBot.Top)) &&
+//        OvertakenBot.Right + k < Player.Left - 10 && OvertakenBot.Top > Player.Bottom)
+//        OvertakenBot.Location = new Point(OvertakenBot.Left + k, OvertakenBot.Top);
+//}

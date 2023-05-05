@@ -89,18 +89,12 @@ public partial class Race : Form
         Speedometer.Size = new Size(Size.Width / 8, (int)(Size.Width / 8 * 0.98));
         Speedometer.Location = new Point(0, (int)(Size.Height - Speedometer.Height * 1.1));
 
-        var lightTimer = new Timer()
-        {
-            Interval = 1000,
-        };
-        lightTimer.Tick += LightTimer_Tick;
-        lightTimer.Start();
-
         StartTimers();
 
         Stopwatch = new() { Interval = 100 };
         Stopwatch.Tick += (s, e) => MiliSeconds++;
         UpdatePlacesLables();
+        LightTimer.Start();
     }
 
     public void Finish()

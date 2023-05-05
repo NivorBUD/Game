@@ -21,6 +21,7 @@ public partial class Race : Form
         Controls.Add(Exit);
         Continue.BringToFront();
         Exit.BringToFront();
+        LightTimer.Stop();
     }
 
     private void MakePauseButtons()
@@ -39,7 +40,10 @@ public partial class Race : Form
         {
             Controls.Remove(Continue);
             Controls.Remove(Exit);
-            RaceModel.GameIsGo = true;
+            if (LightN <= 5)
+                LightTimer.Start();
+            else
+                RaceModel.GameIsGo = true;
         };
 
         Exit = new()
@@ -54,6 +58,8 @@ public partial class Race : Form
         Exit.Location = new Point((Size.Width - Exit.Width) / 2, Size.Height / 2 + Exit.Height);
         Exit.Click += (s, e) =>
         {
+            Controls.Remove(Continue);
+            Controls.Remove(Exit);
             foreach (var c in new List<Control>() { Charle, Fernando, Lewis, Max })
                 Controls.Remove(c);
             Visible = false;

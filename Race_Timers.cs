@@ -7,6 +7,8 @@ public partial class Race : Form
     private static Timer Timer;
     private static Timer SpeedTimer;
     private static Timer UpdateTimer;
+    private static Timer LightTimer;
+
 
     private void InitializeTimers()
     {
@@ -33,6 +35,12 @@ public partial class Race : Form
             Interval = 20,
         };
         DRSTimer.Tick += DRSTimer_Tick;
+
+        LightTimer = new Timer()
+        {
+            Interval = 1000,
+        };
+        LightTimer.Tick += LightTimer_Tick;
     }
 
     private void DRSTimer_Tick(object sender, EventArgs e)
@@ -56,7 +64,6 @@ public partial class Race : Form
 
     public void LightTimer_Tick(object sender, EventArgs e)
     {
-        var timer = (Timer)sender;
         LightN++;
         if (LightN <= 5)
             Light.Image = ResizeImage(bitmaps["Light" + LightN + ".png"], Light.Size);
@@ -64,7 +71,7 @@ public partial class Race : Form
         {
             Light.Image = ResizeImage(bitmaps["Light0.png"], Light.Size);
             RaceModel.StartRace();
-            timer.Stop();
+            LightTimer.Stop();
         }
     }
 
