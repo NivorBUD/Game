@@ -30,7 +30,7 @@ public partial class Race : Form
         {
             Size = new Size(Size.Width / 4, Size.Height / 9),
             Text = "Продолжить",
-            Font = new Font("Ariel", 50),
+            Font = new Font("Ariel", Size.Width > 2000 ? 50 : 40),
             BackColor = Color.FromArgb(90, Color.Black),
             ForeColor = Color.Black,
             TextAlign = ContentAlignment.MiddleCenter,
@@ -50,7 +50,7 @@ public partial class Race : Form
         {
             Size = new Size(Size.Width / 9, Size.Height / 9),
             Text = "Выход",
-            Font = new Font("Ariel", 50),
+            Font = new Font("Ariel", Size.Width > 2000 ? 50 : 40),
             BackColor = Color.FromArgb(90, Color.Black),
             ForeColor = Color.Black,
             TextAlign = ContentAlignment.MiddleCenter,
