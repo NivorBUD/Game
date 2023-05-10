@@ -127,7 +127,8 @@ public class RaceModel
                     }    
                 }
             }
-            if ((x <= 0 && PlayerCar.Velocity.X < 0) || (x >= PanelSize.Width && PlayerCar.Velocity.X > 0)) return;
+            if ((x <= 0 && PlayerCar.Velocity.X < 0) || (RaceForm.Player.Right >= PanelSize.Width && PlayerCar.Velocity.X > 0))
+                return;
             PlayerCar.Location.X += (int)(PlayerCar.Velocity.X * k * PlayerCar.Velocity.Y / PlayerCar.MaxVelocity.Y);
         }
     }

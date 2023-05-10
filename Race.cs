@@ -200,7 +200,7 @@ public partial class Race : Form
 
     private void MakeDir(DirectoryInfo imagesDirectory = null)
     {
-        var way = @"..\..\..\GameImages\";
+        var way = @"..\..\..\Game\GameImages\";
         if (imagesDirectory == null)
             imagesDirectory = new DirectoryInfo(way);
         foreach (var e in imagesDirectory.GetFiles("*.png"))
@@ -329,7 +329,7 @@ public partial class Race : Form
     {
         var leftSide = GetPixel(dc, Player.Left, Player.Top);
         var rightSide = GetPixel(dc, Player.Right, Player.Top);
-        var leftSideOnRoad = RoadValues.Contains(leftSide); 
+        var leftSideOnRoad = RoadValues.Contains(leftSide);
         var rightSideOnRoad = RoadValues.Contains(rightSide);
         return leftSideOnRoad || rightSideOnRoad;
     }
