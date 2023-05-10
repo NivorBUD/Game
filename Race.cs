@@ -200,7 +200,7 @@ public partial class Race : Form
 
     private void MakeDir(DirectoryInfo imagesDirectory = null)
     {
-        var way = @"..\..\..\GameImages\";
+        var way = @"..\..\GameImages\";
         if (imagesDirectory == null)
             imagesDirectory = new DirectoryInfo(way);
         foreach (var e in imagesDirectory.GetFiles("*.png"))
