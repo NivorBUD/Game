@@ -28,12 +28,7 @@ public class Car
         MaxVelocity = new Vector(12, 20);
         DRSMultiplier = 1.1;
         OnRoad = true;
-
         SpecificationsLevels = new();
-        var allSpecifications = new Specification[] { Specification.Speed, Specification.DRSTime, 
-            Specification.DRSBoost, Specification.Boost, Specification.Control};
-        foreach (var e in allSpecifications)
-            SpecificationsLevels[e] = 1;
     }
 
     public void ToStartValues()

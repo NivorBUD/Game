@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Controls;
 
 namespace Game;
 
@@ -22,17 +23,29 @@ public class RaceModel
     public int Income;
     public bool IsFirstRace;
     public bool IsFirstWin;
+    public Save Save;
 
     public RaceModel()
     {
-        IsFirstRace = true;
-        IsFirstWin = true;
-        PlayerCar = new Car(new Point(0, 0), "McLaren");
+        Save = new Save();
+        LoadSave();
         Track = new List<int>();
         ActualSectorId = 0;
-        Economy = new(100);
         Economy.RModel = this;
-        StartPlace = 5;
+    }
+
+    private void LoadSave()
+    {
+        PlayerCar = new Car(new Point(0, 0), "McLaren");
+        IsFirstRace = int.Parse(Save.SaveInfo["IsFirstRace"]) == 1;
+        IsFirstWin = int.Parse(Save.SaveInfo["IsFirstWin"]) == 1;
+        Economy = new(int.Parse(Save.SaveInfo["Balance"]));
+        StartPlace = int.Parse(Save.SaveInfo["StartPlace"]);
+        PlayerCar.SpecificationsLevels[Specification.Speed] = int.Parse(Save.SaveInfo["Speed"]);
+        PlayerCar.SpecificationsLevels[Specification.DRSTime] = int.Parse(Save.SaveInfo["DRSTime"]);
+        PlayerCar.SpecificationsLevels[Specification.DRSBoost] = int.Parse(Save.SaveInfo["DRSBoost"]);
+        PlayerCar.SpecificationsLevels[Specification.Boost] = int.Parse(Save.SaveInfo["Boost"]);
+        PlayerCar.SpecificationsLevels[Specification.Control] = int.Parse(Save.SaveInfo["Control"]);
     }
 
     public void Start()
@@ -91,7 +104,7 @@ public class RaceModel
             }
             if (prevgroup != -1)
                 Track.Add(prevgroup * 10 + group);
-            else 
+            else
                 Track.Add(group);
             prevgroup = group;
             var c = random.Next(0, 4);
@@ -124,7 +137,7 @@ public class RaceModel
                     {
                         PlayerCar.Velocity.X = 0;
                         return;
-                    }    
+                    }
                 }
             }
             if ((x <= 0 && PlayerCar.Velocity.X < 0) || (RaceForm.Player.Right >= PanelSize.Width && PlayerCar.Velocity.X > 0))

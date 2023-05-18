@@ -8,7 +8,8 @@ namespace Game;
 
 public partial class Menu : Form
 {
-    private Button StartGame;
+    private Button StartNewGame;
+    private Button ContinueGame;
     private Button StartTraining;
     private Button Exit;
     private List<Control> MenuControls;
@@ -31,34 +32,64 @@ public partial class Menu : Form
 
     private void MakeMenuControls()
     {
-        MakeStartGameButton();
+        MakeStartNewGameButton();
+        MakeContinueGameButton();
         MakeStartTrainingButton();
         MakeExitButton();
 
         MenuControls = new()
         {
-            StartGame,
+            StartNewGame,
+            ContinueGame,
             StartTraining,
             Exit
         };
         UpdForm();
     }
 
-    private void MakeStartGameButton()
+    private void MakeStartNewGameButton()
     {
-        StartGame = new Button()
+        StartNewGame = new()
         {
-            Text = "Начать игру",
+            Text = "Новая игра",
             Font = new Font("Times New Roman", 16),
             BackColor = Color.Transparent,
             FlatStyle = FlatStyle.Flat,
         };
-        StartGame.Paint += Button_Paint;
-        StartGame.FlatAppearance.MouseOverBackColor = Color.Transparent;
-        StartGame.FlatAppearance.MouseDownBackColor = Color.Transparent;
-        StartGame.MouseEnter += (s, e) => StartGame.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, Color.Black);
-        StartGame.FlatAppearance.BorderSize = 0;
-        StartGame.Click += (s, e) =>
+        StartNewGame.Paint += Button_Paint;
+        StartNewGame.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        StartNewGame.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        StartNewGame.MouseEnter += (s, e) => StartNewGame.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, Color.Black);
+        StartNewGame.FlatAppearance.BorderSize = 0;
+        StartNewGame.Click += (s, e) =>
+        {
+            RaceModel.Save.RewriteSave(new int[9] { 1, 1, 100, 5, 1, 1, 1, 1, 1 });
+            Controls.Clear();
+            if (RaceModel.IsFirstRace)
+            {
+                GoToStory();
+                RaceModel.IsFirstRace = false;
+            }
+            else
+                GoToGarage();
+        };
+    }
+
+    private void MakeContinueGameButton()
+    {
+        ContinueGame = new()
+        {
+            Text = "Продолжить",
+            Font = new Font("Times New Roman", 16),
+            BackColor = Color.Transparent,
+            FlatStyle = FlatStyle.Flat,
+        };
+        ContinueGame.Paint += Button_Paint;
+        ContinueGame.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        ContinueGame.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        ContinueGame.MouseEnter += (s, e) => ContinueGame.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, Color.Black);
+        ContinueGame.FlatAppearance.BorderSize = 0;
+        ContinueGame.Click += (s, e) =>
         {
             Controls.Clear();
             if (RaceModel.IsFirstRace)
@@ -73,7 +104,7 @@ public partial class Menu : Form
 
     private void MakeStartTrainingButton()
     {
-        StartTraining = new Button()
+        StartTraining = new()
         {
             Text = "Обучение",
             Font = new Font("Times New Roman", 16),
@@ -94,7 +125,7 @@ public partial class Menu : Form
 
     private void MakeExitButton()
     {
-        Exit = new Button()
+        Exit = new()
         {
             Text = "Выйти",
             Font = new Font("Ariel", 16),
@@ -127,14 +158,17 @@ public partial class Menu : Form
 
     private void UpdForm()
     {
-        if (StartGame == null) return;
+        if (StartNewGame == null) return;
         BackgroundImage = ResizeImage(Program.RForm.bitmaps["Menu.png"], Size);
 
-        StartGame.Size = new Size(Size.Width / 5, (int)(Size.Width / 6 * 0.25));
-        StartGame.Location = new Point((Size.Width - StartGame.Width) / 2, Size.Height / 2);
+        ContinueGame.Size = new Size((int)(Size.Width / 4.5), (int)(Size.Width / 6 * 0.25));
+        ContinueGame.Location = new Point((Size.Width - ContinueGame.Width) / 2, Size.Height / 2);
+
+        StartNewGame.Size = new Size(Size.Width / 5, (int)(Size.Width / 6 * 0.25));
+        StartNewGame.Location = new Point((Size.Width - StartNewGame.Width) / 2, ContinueGame.Top - StartNewGame.Height);
 
         StartTraining.Size = new Size(Size.Width / 6, (int)(Size.Width / 6 * 0.25));
-        StartTraining.Location = new Point((Size.Width - StartTraining.Width) / 2, StartGame.Bottom);
+        StartTraining.Location = new Point((Size.Width - StartTraining.Width) / 2, ContinueGame.Bottom);
 
         Exit.Size = new Size(Size.Width / 7, (int)(Size.Width / 6 * 0.25));
         Exit.Location = new Point((Size.Width - Exit.Width) / 2, StartTraining.Bottom);
@@ -145,6 +179,7 @@ public partial class Menu : Form
     private void Menu_Load(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Maximized;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
         RaceForm = Program.RForm;
         RaceModel = Program.RModel;
 
@@ -155,7 +190,5 @@ public partial class Menu : Form
         MakeTrainingControls();
 
         MakeMenu();
-
-        FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 }
