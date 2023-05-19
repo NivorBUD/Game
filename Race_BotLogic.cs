@@ -410,37 +410,3 @@ public partial class Race : Form
         PlayerPlace.Location = new Point(left, CharlePlace.Bottom);
     }
 }
-
-
-//if (RaceModel.ActualSectorId == 0)
-//        {
-//            var roadCenter = Size.Width / 2;
-//            if (playerCenterLoc >= roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Left - k, OvertakenBot.Top)) && 
-//                OvertakenBot.Left - k > Player.Right + 10 && OvertakenBot.Top > Player.Bottom)
-//                OvertakenBot.Location = new Point(OvertakenBot.Left - k, OvertakenBot.Top);
-//            if (playerCenterLoc<roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Right + k, OvertakenBot.Top)) &&
-//                OvertakenBot.Right + k<Player.Left - 10 && OvertakenBot.Top> Player.Bottom)
-//                OvertakenBot.Location = new Point(OvertakenBot.Left + k, OvertakenBot.Top);
-//        }
-
-//        if (RaceModel.ActualSectorId == 11)
-//{
-//    var roadCenter = Size.Width * 0.73;
-//    if (playerCenterLoc >= roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Left - k, OvertakenBot.Top)) &&
-//        OvertakenBot.Left - k > Player.Right + 10 && OvertakenBot.Top > Player.Bottom)
-//        OvertakenBot.Location = new Point(OvertakenBot.Left - k, OvertakenBot.Top);
-//    if (playerCenterLoc < roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Right + k, OvertakenBot.Top)) &&
-//        OvertakenBot.Right + k < Player.Left - 10 && OvertakenBot.Top > Player.Bottom)
-//        OvertakenBot.Location = new Point(OvertakenBot.Left + k, OvertakenBot.Top);
-//}
-
-//if (RaceModel.ActualSectorId == 22)
-//{
-//    var roadCenter = Size.Width * 0.26;
-//    if (playerCenterLoc >= roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Left - k, OvertakenBot.Top)) &&
-//        OvertakenBot.Left - k > Player.Right + 10 && OvertakenBot.Top > Player.Bottom)
-//        OvertakenBot.Location = new Point(OvertakenBot.Left - k, OvertakenBot.Top);
-//    if (playerCenterLoc < roadCenter && RoadValues.Contains(GetPixel(dc, OvertakenBot.Right + k, OvertakenBot.Top)) &&
-//        OvertakenBot.Right + k < Player.Left - 10 && OvertakenBot.Top > Player.Bottom)
-//        OvertakenBot.Location = new Point(OvertakenBot.Left + k, OvertakenBot.Top);
-//}

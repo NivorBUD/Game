@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7yxPIixV8BqKnV8/4EtfcjEdBrFxEkp4ymTMfjwrXJA=</dsig:DigestValue>
+        <dsig:DigestValue>dg/j9HGopjrhGO/XPyxJBRrHjh8Qqlh8Sdw9F/XgouY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -848,13 +848,13 @@
       <dsig:DigestValue>DEExF8A8pAk2/L6z/6+f6X2ny0e4OoCfqSKH8xTBrJs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Saves\Save.txt" size="21">
+  <file name="Saves\Save.txt" size="20">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>icqSlbLKFAw8+mTpYxoIa5eOjg3t3KBR5uwg2YIom/s=</dsig:DigestValue>
+      <dsig:DigestValue>BIp4O6Cv1cKyscOyPkGQr4NY0ZkUGxThFZ5zYM0SQI8=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
