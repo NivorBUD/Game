@@ -10,6 +10,7 @@ namespace Game;
 
 public class Save
 {
+    private static string FileText;
     public static Dictionary<string, string> SaveInfo;
 
     public Save()
@@ -19,7 +20,14 @@ public class Save
 
     public void RewriteSave(int[] saveInfo)
     {
-
+        string str = "";
+        foreach (int e in saveInfo)
+            str += e.ToString() + " ";
+        using (StreamWriter file = new StreamWriter(@"..\..\Saves\Save.txt"))
+        {
+            file.Write(str);
+        }
+        MakeSaveInfo();
     }
 
     private static void MakeSaveInfo(DirectoryInfo savesDirectory = null)
@@ -29,6 +37,7 @@ public class Save
             savesDirectory = new DirectoryInfo(way);
         var save = savesDirectory.GetFiles("*.txt").First();
         var saveInfo = File.ReadAllText(save.FullName).Split();
+
         SaveInfo = new();
         SaveInfo["IsFirstRace"] = saveInfo[0];
         SaveInfo["IsFirstWin"] = saveInfo[1];

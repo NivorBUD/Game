@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Game.exe" size="55304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Game.exe" size="58888">
       <assemblyIdentity name="Game" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ytbuDz2rI7Y1jISuJXBZgTHQst1JUzpsrElolPrm2QA=</dsig:DigestValue>
+        <dsig:DigestValue>7yxPIixV8BqKnV8/4EtfcjEdBrFxEkp4ymTMfjwrXJA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -65,13 +65,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Game.exe.config" size="189">
+  <file name="Game.exe.config" size="184">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+      <dsig:DigestValue>X+GtgC9o18R9u9jmAWK6iKuu0WLaXTgchdPkk1MRli4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="GameImages\Background0.png" size="4005239">
@@ -846,6 +846,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>DEExF8A8pAk2/L6z/6+f6X2ny0e4OoCfqSKH8xTBrJs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Saves\Save.txt" size="21">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>icqSlbLKFAw8+mTpYxoIa5eOjg3t3KBR5uwg2YIom/s=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

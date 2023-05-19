@@ -101,8 +101,16 @@ public partial class Race : Form
     {
         Visible = false;
         StopTimers();
+        RaceModel.Save.RewriteSave(new int[9] { RaceModel.IsFirstRace ? 1 : 0, RaceModel.IsFirstWin ? 1 : 0,
+                RaceModel.Economy.Balance,
+                RaceModel.StartPlace,
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.Speed],
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.DRSTime],
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.DRSBoost],
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.Boost],
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.Control]});
         RaceModel.MenuAndGarage.UpdateButtons();
-        RaceModel.MenuAndGarage.MakeResults();
+        RaceModel.MenuAndGarage.GoToResults();
     }
 
     private void Keyboard()

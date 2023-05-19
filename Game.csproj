@@ -231,6 +231,7 @@
     <Content Include="GameImages\Speedometer9.png" />
     <Content Include="GameImages\Story.png" />
     <Content Include="GameImages\Training.png" />
+    <Content Include="Saves\Save.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Game.exe" size="59912">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Game.exe" size="61448">
       <assemblyIdentity name="Game" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>n50upFGQruhXAS56Tn2/ZbHGVzM7EIwhQZhIXrUkzaI=</dsig:DigestValue>
+        <dsig:DigestValue>MS31HhEE/7mpx7zISEGbdJRpyaOkBrnYH/Y2CHNkyXw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -846,6 +846,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>DEExF8A8pAk2/L6z/6+f6X2ny0e4OoCfqSKH8xTBrJs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Saves\Save.txt" size="20">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>y19hbxa8tqpi3b+MekK3TFyO5/49kWwYr9PqKPZcsag=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

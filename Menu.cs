@@ -64,6 +64,7 @@ public partial class Menu : Form
         StartNewGame.Click += (s, e) =>
         {
             RaceModel.Save.RewriteSave(new int[9] { 1, 1, 100, 5, 1, 1, 1, 1, 1 });
+            RaceModel.LoadSave();
             Controls.Clear();
             if (RaceModel.IsFirstRace)
             {
@@ -139,6 +140,14 @@ public partial class Menu : Form
         Exit.FlatAppearance.BorderSize = 0;
         Exit.Click += (s, e) =>
         {
+            RaceModel.Save.RewriteSave(new int[9] { RaceModel.IsFirstRace ? 1 : 0, RaceModel.IsFirstWin ? 1 : 0, 
+                RaceModel.Economy.Balance, 
+                RaceModel.StartPlace, 
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.Speed],
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.DRSTime],
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.DRSBoost],
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.Boost], 
+                RaceModel.PlayerCar.SpecificationsLevels[Specification.Control] });
             Application.Exit();
         };
     }

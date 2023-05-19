@@ -28,6 +28,10 @@ public partial class Menu : Form
     public void GoToGarage()
     {   
         MakeGarage();
+        UpdateButtons();
+        UpdateProgressBars();
+        foreach (Specification s in new Specification[5] { Specification.Speed, Specification.DRSTime, Specification.DRSBoost, Specification.Boost, Specification.Control })
+            UpdateBalanceInfo(s);
     }
 
     private void MakeGarage()

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Game;
 
@@ -11,13 +12,17 @@ public class Economy
     public Economy(int balance)
     {
         Balance = balance;
+    }
+
+    public void MakePrices()
+    {
         Price = new()
         {
-            [Specification.Speed] = 100,
-            [Specification.DRSTime] = 100,
-            [Specification.DRSBoost] = 100,
-            [Specification.Boost] = 100,
-            [Specification.Control] = 100
+            [Specification.Speed] = (int)(100 * Math.Pow(2, RModel.PlayerCar.SpecificationsLevels[Specification.Speed] - 1)),
+            [Specification.DRSTime] = (int)(100 * Math.Pow(2, RModel.PlayerCar.SpecificationsLevels[Specification.DRSTime] - 1)),
+            [Specification.DRSBoost] = (int)(100 * Math.Pow(2, RModel.PlayerCar.SpecificationsLevels[Specification.DRSBoost] - 1)),
+            [Specification.Boost] = (int)(100 * Math.Pow(2, RModel.PlayerCar.SpecificationsLevels[Specification.Boost] - 1)),
+            [Specification.Control] = (int)(100 * Math.Pow(2, RModel.PlayerCar.SpecificationsLevels[Specification.Control] - 1))
         };
     }
 

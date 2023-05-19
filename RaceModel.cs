@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Controls;
 
 namespace Game;
 
@@ -31,10 +30,9 @@ public class RaceModel
         LoadSave();
         Track = new List<int>();
         ActualSectorId = 0;
-        Economy.RModel = this;
     }
 
-    private void LoadSave()
+    public void LoadSave()
     {
         PlayerCar = new Car(new Point(0, 0), "McLaren");
         IsFirstRace = int.Parse(Save.SaveInfo["IsFirstRace"]) == 1;
@@ -46,6 +44,8 @@ public class RaceModel
         PlayerCar.SpecificationsLevels[Specification.DRSBoost] = int.Parse(Save.SaveInfo["DRSBoost"]);
         PlayerCar.SpecificationsLevels[Specification.Boost] = int.Parse(Save.SaveInfo["Boost"]);
         PlayerCar.SpecificationsLevels[Specification.Control] = int.Parse(Save.SaveInfo["Control"]);
+        Economy.RModel = this;
+        Economy.MakePrices();
     }
 
     public void Start()
@@ -55,7 +55,7 @@ public class RaceModel
         ActualSectorId = 0;
         SectorNumberActual = 0;
         SectorNumberNext = 1;
-        MakeTrack(5);
+        MakeTrack(10);
         NextSectorId = Track[1];
         PlayerCar.ToStartValues();
         RaceForm.Start();
@@ -79,6 +79,14 @@ public class RaceModel
         Income = (6 - finishPlace) * 300;
         Economy.Balance += Income;
         StartPlace = Math.Min(finishPlace, PlayerCar.Place);
+        Save.RewriteSave(new int[9] { IsFirstRace ? 1 : 0, IsFirstWin ? 1 : 0,
+                Economy.Balance,
+                StartPlace,
+                PlayerCar.SpecificationsLevels[Specification.Speed],
+                PlayerCar.SpecificationsLevels[Specification.DRSTime],
+                PlayerCar.SpecificationsLevels[Specification.DRSBoost],
+                PlayerCar.SpecificationsLevels[Specification.Boost],
+                PlayerCar.SpecificationsLevels[Specification.Control] });
         RaceForm.Finish();
     }
 
