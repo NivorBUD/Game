@@ -117,9 +117,20 @@ public partial class Race : Form
         if (RaceModel.PlayerCar.Place == 1 && BotIsOvertaking) OvertakenBot = Max;
         
         OvertakenBot.Location = new Point(Player.Left, - Player.Height);
+        var roadCenter = 0.0;
+        
+        if (RaceModel.ActualSectorId == 0)
+            roadCenter = Size.Width / 2;
+        else if (RaceModel.ActualSectorId == 11)
+            roadCenter = Size.Width * 0.73;
+        else if (RaceModel.ActualSectorId == 22)
+            roadCenter = Size.Width * 0.26;
+
+        if (CanBeOvertaken())
+            OvertakenBot.Location = new Point(Player.Left, OvertakenBot.Location.Y);
 
         if (BotIsOvertaking)
-            OvertakenBot.Location = new Point(OvertakenBot.Location.X, Size.Height);
+            OvertakenBot.Location = new Point((int)roadCenter - 5, Size.Height);
 
         Controls.Add(OvertakenBot);
     }
